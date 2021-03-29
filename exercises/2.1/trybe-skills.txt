@@ -6,3 +6,6 @@ O que vou aprender na Trybe:
 - CSS
 - Javascript
 - Python
+- Backend
+- Frontend
+- Ciência da computação
