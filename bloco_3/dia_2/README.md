@@ -1,1 +1,2 @@
-Introdução ao CSS, propriedades de texto no CSS e CSS inline e Externo
+# Portfolio
+Foram acrescentados algumas funções de CSS e estilização de texto aprendidos na aula 3.2
