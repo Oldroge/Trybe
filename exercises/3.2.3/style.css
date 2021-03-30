@@ -1,0 +1,28 @@
+h1 {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+p {
+  font-weight: 600;
+  font-size: 48px;
+  font-style: normal;
+  line-height: 10px;
+  text-decoration: solid;
+}
+
+body {
+  font-size: 16px;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.red {
+  background-color: red;
+}
+
+.brown {
+  background-color: brown;
+}
