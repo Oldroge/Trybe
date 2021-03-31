@@ -9,4 +9,5 @@ O que vou aprender na Trybe:
 - Backend
 - Frontend
 - Ciência da computação
+- Testes automatizados com Jest
 
