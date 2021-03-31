@@ -5,7 +5,7 @@ let ang2 = 60;
 let ang3 = 60;
 
 if (ang1 < 0 || ang1 == 0 || ang2 < 0 || ang2 == 0 || ang3 < 0 || ang3 == 0) {
-  console.log('Error!');
+  console.log('Error!')
 }
 
 else if (ang1 + ang2 + ang3 == 180) {
