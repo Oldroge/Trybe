@@ -2,9 +2,9 @@
 <html>
   <body>
     <h2 id="page-title">Título</h2>
-    <p id="paragraph">Dê uma cor para este parágrafo!</p>
+    <p id="paragraph" class="pTag">Dê uma cor para este parágrafo!</p>
     <h4 id="subtitle">Subtítulo</h4>
-    <p id="second-paragraph">Segundo parágrafo!</p>
+    <p id="second-paragraph" class="pTag">Segundo parágrafo!</p>
 
     <script>
       var title = document.getElementById("page-title").innerText = 'Batman';
@@ -15,6 +15,13 @@
       var subtitle = document.getElementById("subtitle").innerText = 'Movies:'
 
       var secondParagraph = document.getElementById("second-paragraph").innerText = 'The dark knight rises'
+
+      var tagP = document.getElementsByClassName("pTag");
+      var index;
+      for (index = 0; index < tagP.length; index += 1) {
+        tagP[0].style.backgroundColor = 'yellow';
+      }
+      var subtitleTag = document.getElementsByTagName("h4")[0].innerText = 'Recuperando'
     </script>
   </body>
 </html>
