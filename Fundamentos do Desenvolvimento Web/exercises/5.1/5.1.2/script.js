@@ -15,3 +15,10 @@ let h3Purple;
 for (h3Purple = 0; h3Purple < subtitlePurple.length; h3Purple += 1) {
   subtitlePurple[h3Purple].style.backgroundColor = 'mediumorchid';
 }
+
+// Second Background color for second div
+let noEmergency = document.getElementsByClassName('no-emergency-tasks');
+let noEmergencyIndex;
+for (noEmergencyIndex = 0; noEmergencyIndex < noEmergency.length; noEmergencyIndex += 1) {
+  noEmergency[0].style.backgroundColor = 'yellow';
+}
