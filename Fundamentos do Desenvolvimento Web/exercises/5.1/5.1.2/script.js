@@ -29,3 +29,6 @@ let h3Black;
 for (h3Black = 0; h3Black < subtitleBlack.length; h3Black += 1) {
   subtitleBlack[h3Black].style.backgroundColor = 'black';
 }
+
+let footer = document.getElementById('footer-container');
+footer.style.backgroundColor = ('darkCyan')
