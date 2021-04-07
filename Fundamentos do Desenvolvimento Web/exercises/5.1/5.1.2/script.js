@@ -22,3 +22,10 @@ let noEmergencyIndex;
 for (noEmergencyIndex = 0; noEmergencyIndex < noEmergency.length; noEmergencyIndex += 1) {
   noEmergency[0].style.backgroundColor = 'yellow';
 }
+
+// Second Background color for second subtitle h3
+let subtitleBlack = document.querySelectorAll('h3#subtitleBlack');
+let h3Black;
+for (h3Black = 0; h3Black < subtitleBlack.length; h3Black += 1) {
+  subtitleBlack[h3Black].style.backgroundColor = 'black';
+}
