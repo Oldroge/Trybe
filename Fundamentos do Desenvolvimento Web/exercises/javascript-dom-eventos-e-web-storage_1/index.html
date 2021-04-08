@@ -33,7 +33,7 @@
     <h1 class="title">Exercício 5.1 - JavaEscripito </h1>
     <div class="main-content">
       <div class="center-content">
-        <p id="upper-tag">Texto padrão do nosso site</p>
+        <p>Texto <strong>padrão</strong> do nosso site</p>
         <p id="upper-tag">-----</p>
         <p id="upper-tag">Trybe</p>
       </div>
@@ -84,7 +84,15 @@
 
         /*Crie uma função que exiba o conteúdo de todas as tags <p> no console.
         */
+        function showContent() {
+          let showContent = document.getElementsByTagName('p');
+          for (let indexContent = 0; indexContent < showContent.length; indexContent += 1) {
+          console.log(document.getElementsByTagName('p')[indexContent].innerHTML);
+          }
+        }
+        showContent();
         
+
     </script>
   </body>
 </html>
