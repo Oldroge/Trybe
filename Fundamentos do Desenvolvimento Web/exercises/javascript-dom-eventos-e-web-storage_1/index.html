@@ -33,9 +33,9 @@
     <h1 class="title">Exercício 5.1 - JavaEscripito </h1>
     <div class="main-content">
       <div class="center-content">
-        <p>Texto padrão do nosso site</p>
-        <p>-----</p>
-        <p>Trybe</p>
+        <p>Texto <strong>padrão</strong> do nosso site</p>
+        <p id="upper-tag">-----</p>
+        <p id="upper-tag">Trybe</p>
       </div>
     </div>
     <script>
@@ -44,17 +44,55 @@
         - document.getElementById()
         - document.getElementsByClassName()
         - document.getElementsByTagName()
- Crie uma função que mude o texto na tag <p> para uma descrição de como você se vê daqui a 2 anos. (Não gaste tempo pensando no texto e sim realizando o exercício) */
+        Crie uma função que mude o texto na tag <p> para uma descrição de como você se vê daqui a 2 anos. (Não gaste tempo pensando no texto e sim realizando o exercício) */
         function myParagraph() {
-   let paragraph = document.getElementsByTagName("p")[1];
-   paragraph.innerHTML = ''
+          let paragraph = document.getElementsByTagName('p')[1];
+          paragraph.innerHTML = 'In the next 2 years I am working with backend, to be more specific, with database and information security.'
+        }
+        myParagraph();
 
- /* Crie uma função que mude a cor do quadrado amarelo para o verde da Trybe (rgb(76,164,109)).
- Crie uma função que mude a cor do quadrado vermelho para branco.
- Crie uma função que corrija o texto da tag <h1>.
- Crie uma função que modifique todo o texto da tag <p> para maiúsculo.
- Crie uma função que exiba o conteúdo de todas as tags <p> no console.
+        /* Crie uma função que mude a cor do quadrado amarelo para o verde da Trybe (rgb(76,164,109)).*/
+        function squareGreen() {
+          let greenSquare = document.getElementsByClassName('main-content')[0];
+          greenSquare.style.backgroundColor = 'MediumSeaGreen';
+        }
+        squareGreen();
+
+        /*Crie uma função que mude a cor do quadrado vermelho para branco. */
+        function squareWhite() {
+          let whiteSquare = document.getElementsByClassName('center-content')[0];
+          whiteSquare.style.backgroundColor = 'white';
+        }
+        squareWhite();     
+
+        /*Crie uma função que corrija o texto da tag <h1>.*/
+        function titleFunction() {
+          let reformTitle = document.getElementsByClassName('title')[0].innerHTML = 'Hello World';
+        }
+        titleFunction();
+
+        /*Crie uma função que modifique todo o texto da tag <p> para maiúsculo.*/
+      
+        function reformParagraph() {
+          let qtdElements = document.getElementsByTagName('p');
+          for (let indexParagraph = 0; indexParagraph < qtdElements.length; indexParagraph += 1) {
+          let elementTextUpperCase = document.getElementsByTagName('p')[indexParagraph].innerText.toUpperCase();
+          document.getElementsByTagName('p')[indexParagraph].innerHTML = elementTextUpperCase;
+          }
+        }
+        reformParagraph();
+
+        /*Crie uma função que exiba o conteúdo de todas as tags <p> no console.
         */
+        function showContent() {
+          let showContent = document.getElementsByTagName('p');
+          for (let indexContent = 0; indexContent < showContent.length; indexContent += 1) {
+          console.log(document.getElementsByTagName('p')[indexContent].innerHTML);
+          }
+        }
+        showContent();
+        
+
     </script>
   </body>
 </html>
