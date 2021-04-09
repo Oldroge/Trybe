@@ -66,15 +66,22 @@
       // Add a <div> tag with the class main-content inside the body
       let newDiv = document.createElement('div');
       let mainContent = document.querySelector('body').appendChild(newDiv);
-      let getAClass = document.querySelector('.main-content');
       newDiv.className += 'main-content';
 
       //Add the <div> tag with the class center-content as tags <div> son
       let centerContent = document.createElement('div');
       let dadMainContent = document.querySelector('.main-content').appendChild(centerContent);
-      let getCenterContent = document.querySelector('.center-content');
       centerContent.className += 'center-content';
 
+      //Add the <p> tag as tags <div> son create on step 3 and put some text
+      let newParagraph = document.createElement('p');
+      let dadCenterContent = document.querySelector('.center-content').appendChild(newParagraph);
+      newParagraph.innerText = 'Hello everybody! I am Roge, and here are my exercises!';
+
+      ///Add the <div> tag with tha class 'left-content as tags <div> son create on step 2'
+      let leftContent = document.createElement('div');
+      let classLeftContent = document.querySelector('.main-content').appendChild(leftContent);
+      leftContent.className += 'left-content';
       
       console.log();
     </script>
