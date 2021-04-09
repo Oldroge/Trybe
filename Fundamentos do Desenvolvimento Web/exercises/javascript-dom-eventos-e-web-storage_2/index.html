@@ -87,6 +87,14 @@
       let rightContent = document.createElement('div');
       let classRightContent = document.querySelector('.main-content').appendChild(rightContent);
       rightContent.className += 'right-content';
+
+      //Add an image with 'src' defined to the gave link on the trybe course and class small-image. This element should be tags <div> son on step 5
+      let smallImage = document.createElement('img');
+      let classSmallImage = document.querySelector('.left-content').appendChild(smallImage);
+      smallImage.className += 'left-content';
+      smallImage.setAttribute('src', 'https://picsum.photos/200');
+      
+      
       console.log();
     </script>
   </body>
