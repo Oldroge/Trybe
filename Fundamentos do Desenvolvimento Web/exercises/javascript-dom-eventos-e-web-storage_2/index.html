@@ -57,15 +57,24 @@
   </head>
   <body>
     <script>
+      //Add a <h1> tag
       let title = document.querySelector('body');
       let newTitle = document.createElement('h1');
       newTitle.innerText = 'Exercício 5.2 - JavaScript DOM';
       title.appendChild(newTitle);
 
+      // Add a <div> tag with the class main-content inside the body
       let newDiv = document.createElement('div');
       let mainContent = document.querySelector('body').appendChild(newDiv);
       let getAClass = document.querySelector('.main-content');
-      newDiv.className += 'main-content'
+      newDiv.className += 'main-content';
+
+      //Add the <div> tag with the class center-content as tags <div> son
+      let centerContent = document.createElement('div');
+      let dadMainContent = document.querySelector('.main-content').appendChild(centerContent);
+      let getCenterContent = document.querySelector('.center-content');
+      centerContent.className += 'center-content';
+
       
       console.log();
     </script>
