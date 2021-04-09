@@ -61,8 +61,13 @@
       let newTitle = document.createElement('h1');
       newTitle.innerText = 'Exercício 5.2 - JavaScript DOM';
       title.appendChild(newTitle);
+
+      let newDiv = document.createElement('div');
+      let mainContent = document.querySelector('body').appendChild(newDiv);
+      let getAClass = document.querySelector('.main-content');
+      newDiv.className += 'main-content'
       
-      console.log(title);
+      console.log();
     </script>
   </body>
 </html>
