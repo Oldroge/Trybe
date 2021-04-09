@@ -78,11 +78,61 @@
       let dadCenterContent = document.querySelector('.center-content').appendChild(newParagraph);
       newParagraph.innerText = 'Hello everybody! I am Roge, and here are my exercises!';
 
-      ///Add the <div> tag with tha class 'left-content as tags <div> son create on step 2'
+      //Add the <div> tag with tha class 'left-content as tags <div> son create on step 2'
       let leftContent = document.createElement('div');
       let classLeftContent = document.querySelector('.main-content').appendChild(leftContent);
       leftContent.className += 'left-content';
       
+      //Add the <div> tag with the class 'right-content' as tags <div> son create on step 2
+      let rightContent = document.createElement('div');
+      let classRightContent = document.querySelector('.main-content').appendChild(rightContent);
+      rightContent.className += 'right-content';
+
+      //Add an image with 'src' defined to the gave link on the trybe course and class small-image. This element should be tags <div> son on step 5
+      let smallImage = document.createElement('img');
+      let classSmallImage = document.querySelector('.left-content').appendChild(smallImage);
+      smallImage.className += 'left-content';
+      smallImage.setAttribute('src', 'https://picsum.photos/200');
+
+      //Add a unordered list with the values from 1 to 10 in full as list values. This list should be tags <div> son created on step 6
+
+      let allList = [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10        
+      ];
+      
+      let unorderedList = document.createElement('ul');
+      let getTheDad = document.querySelector('.right-content').appendChild(unorderedList);
+
+      let recoverClass = document.querySelector('ul');
+
+      for (let indexList = 0; indexList < allList.length; indexList += 1) {
+      let listItens = allList[indexList];
+
+      let createList = document.createElement('li');
+      let birthAList = document.querySelector('ul').appendChild(createList);
+
+      createList.innerText = listItens;
+      
+      }
+      
+      //Add 3 <h3> tags, all been tags <div> children created on step 2
+      let newSubtitle = document.createElement('h3');
+      let secondNewSubtitle = document.createElement('h3');
+      let thirdNewSubtitle = document.createElement('h3');
+
+      let firstRecoverStepTwo = document.querySelector('.main-content').appendChild(newSubtitle);
+      let secondRecoverStepTwo = document.querySelector('.main-content').appendChild(secondNewSubtitle);
+      let thirdRecoverStepTwo = document.querySelector('.main-content').appendChild(thirdNewSubtitle);
+
       console.log();
     </script>
   </body>
