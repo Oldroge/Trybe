@@ -123,7 +123,17 @@
       createList.innerText = listItens;
       
       }
-      console.log(recoverClass);
+      
+      //Add 3 <h3> tags, all been tags <div> children created on step 2
+      let newSubtitle = document.createElement('h3');
+      let secondNewSubtitle = document.createElement('h3');
+      let thirdNewSubtitle = document.createElement('h3');
+
+      let firstRecoverStepTwo = document.querySelector('.main-content').appendChild(newSubtitle);
+      let secondRecoverStepTwo = document.querySelector('.main-content').appendChild(secondNewSubtitle);
+      let thirdRecoverStepTwo = document.querySelector('.main-content').appendChild(thirdNewSubtitle);
+
+      console.log();
     </script>
   </body>
 </html>
