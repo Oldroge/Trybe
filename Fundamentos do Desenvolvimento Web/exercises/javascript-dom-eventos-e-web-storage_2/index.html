@@ -93,9 +93,37 @@
       let classSmallImage = document.querySelector('.left-content').appendChild(smallImage);
       smallImage.className += 'left-content';
       smallImage.setAttribute('src', 'https://picsum.photos/200');
+
+      //Add a unordered list with the values from 1 to 10 in full as list values. This list should be tags <div> son created on step 6
+
+      let allList = [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10        
+      ];
       
+      let unorderedList = document.createElement('ul');
+      let getTheDad = document.querySelector('.right-content').appendChild(unorderedList);
+
+      let recoverClass = document.querySelector('ul');
+
+      for (let indexList = 0; indexList < allList.length; indexList += 1) {
+      let listItens = allList[indexList];
+
+      let createList = document.createElement('li');
+      let birthAList = document.querySelector('ul').appendChild(createList);
+
+      createList.innerText = listItens;
       
-      console.log();
+      }
+      console.log(recoverClass);
     </script>
   </body>
 </html>
