@@ -1,4 +1,3 @@
-function whereAmI() {
-  let amIHere = document.querySelector('#elementoOndeVoceEsta').parentElement.nodeName;
-  document.querySelector('#elementoOndeVoceEsta').innerHTML =  amIHere;
-}
+let whereIsMySon = document.querySelector('#pai');
+let hiDad = document.createElement('div');
+whereIsMySon.appendChild(hiDad);
