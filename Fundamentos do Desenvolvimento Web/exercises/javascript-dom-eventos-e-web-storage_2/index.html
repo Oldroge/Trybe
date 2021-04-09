@@ -78,11 +78,15 @@
       let dadCenterContent = document.querySelector('.center-content').appendChild(newParagraph);
       newParagraph.innerText = 'Hello everybody! I am Roge, and here are my exercises!';
 
-      ///Add the <div> tag with tha class 'left-content as tags <div> son create on step 2'
+      //Add the <div> tag with tha class 'left-content as tags <div> son create on step 2'
       let leftContent = document.createElement('div');
       let classLeftContent = document.querySelector('.main-content').appendChild(leftContent);
       leftContent.className += 'left-content';
       
+      //Add the <div> tag with the class 'right-content' as tags <div> son create on step 2
+      let rightContent = document.createElement('div');
+      let classRightContent = document.querySelector('.main-content').appendChild(rightContent);
+      rightContent.className += 'right-content';
       console.log();
     </script>
   </body>
