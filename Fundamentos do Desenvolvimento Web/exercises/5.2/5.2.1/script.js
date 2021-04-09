@@ -1,4 +1,14 @@
-function whereAmI() {
-  let amIHere = document.querySelector('#elementoOndeVoceEsta').parentElement.nodeName;
-  document.querySelector('#elementoOndeVoceEsta').innerHTML =  amIHere;
-}
+let whereIsMySon = document.querySelector('#pai');
+let hiDad = document.createElement('div');
+whereIsMySon.appendChild(hiDad);
+
+let birth = document.querySelector('#elementoOndeVoceEsta');
+let baby = document.createElement('div');
+birth.appendChild(baby);
+
+let firstSon = document.querySelector('#primeiroFilhoDoFilho');
+let sonOfSon = document.createElement('div');
+firstSon.appendChild(sonOfSon);
+
+let first = document.getElementsByTagName('div')[2];
+let second = first.nextSibling.nextSibling.nextSibling.nextSibling;
