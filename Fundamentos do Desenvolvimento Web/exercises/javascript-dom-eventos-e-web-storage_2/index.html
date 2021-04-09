@@ -75,6 +75,12 @@
       let getCenterContent = document.querySelector('.center-content');
       centerContent.className += 'center-content';
 
+      //Add the <p> tag as tags <div> son create on step 3 and put some text
+      let newParagraph = document.createElement('p');
+      let dadCenterContent = document.querySelector('.center-content').appendChild(newParagraph);
+      newParagraph.innerText = 'Hello everybody! I am Roge, and here are my exercises!'
+      
+
       
       console.log();
     </script>
