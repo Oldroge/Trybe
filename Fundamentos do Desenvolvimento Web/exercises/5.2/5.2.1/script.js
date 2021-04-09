@@ -9,3 +9,6 @@ birth.appendChild(baby);
 let firstSon = document.querySelector('#primeiroFilhoDoFilho');
 let sonOfSon = document.createElement('div');
 firstSon.appendChild(sonOfSon);
+
+let first = document.getElementsByTagName('div')[2];
+let second = first.nextSibling.nextSibling.nextSibling.nextSibling;
