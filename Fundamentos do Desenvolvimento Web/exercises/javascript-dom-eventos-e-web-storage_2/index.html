@@ -139,9 +139,13 @@
       newTitle.className += 'title';
 
       //Add a '.description' class at the 3 <h3> tags created
-        newSubtitle.className += 'description';
-        secondNewSubtitle.className += 'description';
-        thirdNewSubtitle.className += 'description';
+      newSubtitle.className += 'description';
+      secondNewSubtitle.className += 'description';
+      thirdNewSubtitle.className += 'description';
+
+      //Remove the created <div> tag on step 5 (the tag that have 'right-content' tag)
+      let removeDiv = document.querySelector('.right-content')
+      removeDiv.parentNode.removeChild(removeDiv);
       console.log();
     </script>
   </body>
