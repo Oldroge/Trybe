@@ -33,7 +33,7 @@
         background-color: green;
         width: 60%;
         margin-left: 0;
-        margin-right: auto;
+        margin-right: 0;
       }
 
       .main-content .left-content .small-image {
@@ -124,7 +124,7 @@
       
       }
       
-      //Add 3 <h3> tags, all been tags <div> children created on step 2
+      //Add 3 <h3> tags, all been tags <div> son created on step 2
       let newSubtitle = document.createElement('h3');
       let secondNewSubtitle = document.createElement('h3');
       let thirdNewSubtitle = document.createElement('h3');
@@ -132,8 +132,30 @@
       let firstRecoverStepTwo = document.querySelector('.main-content').appendChild(newSubtitle);
       let secondRecoverStepTwo = document.querySelector('.main-content').appendChild(secondNewSubtitle);
       let thirdRecoverStepTwo = document.querySelector('.main-content').appendChild(thirdNewSubtitle);
+      
+      //After create the web page, we make some changes and removals
+      
+      //Add the '.title' class on tag <h1> created
+      newTitle.className += 'title';
 
-      console.log();
+      //Add a '.description' class at the 3 <h3> tags created
+      newSubtitle.className += 'description';
+      secondNewSubtitle.className += 'description';
+      thirdNewSubtitle.className += 'description';
+
+      //Remove the created <div> tag on step 5 (the tag that have 'right-content' class)
+      let removeDiv = document.querySelector('.right-content')
+      removeDiv.parentNode.removeChild(removeDiv);
+
+      //Center the created <div> on step 6 (the one that have 'right-content' class). Hint: to center, just set up the margin-right: auto from <div>
+      
+      //Change the background color from tags <div> dad element created on step 3 (the one that have the '.center-content' class) to green color.
+      centerContent.style.backgroundColor = 'green';
+
+      //Remove the last two elements(nine and ten) from created list on step 8
+      allList.pop();
+      allList.pop();
+
     </script>
   </body>
 </html>
