@@ -5,7 +5,7 @@ body {
   flex-flow: column wrap;
   font-family: Raleway, sans-serif;
   justify-content: center;
-  overflow: hidden;
+  /*overflow: hidden;*/
   width: 100vw;
 }
 
@@ -67,7 +67,7 @@ p strong {
 }
 
 @media screen and (max-width: 500px) {
-  .card {
+  .card.card:nth-of-type(1) {
     border-radius: 5px;
     display: flex;
     color: white;
@@ -78,3 +78,4 @@ p strong {
     width: 200px;
   }
 }
+
