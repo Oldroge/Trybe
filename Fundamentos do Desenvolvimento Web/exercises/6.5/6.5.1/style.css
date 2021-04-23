@@ -5,7 +5,7 @@ body {
   flex-flow: column wrap;
   font-family: Raleway, sans-serif;
   justify-content: center;
-  overflow: hidden;
+  /*overflow: hidden;*/
   width: 100vw;
 }
 
@@ -66,8 +66,8 @@ p strong {
   background-color: #41197f;
 }
 
-@media screen and (max-width: 500px) {
-  .card {
+@media screen and (min-width: 600px) and (max-width: 1000px) {
+  .card:nth-of-type(2) {
     border-radius: 5px;
     display: flex;
     color: white;
@@ -78,3 +78,17 @@ p strong {
     width: 200px;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .card.card:nth-of-type(1) {
+    border-radius: 5px;
+    display: flex;
+    color: white;
+    flex-flow: row wrap;
+    height: 200px;
+    margin: 20px;
+    padding: 20px;
+    width: 200px;
+  }
+}
+
