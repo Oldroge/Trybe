@@ -1,8 +1,12 @@
-body {
+* {
+    font-size: 20px;
+}
 
+body {
+    margin: 2%;
 }
 h1 {
-
+    
 }
 h2 {
 
@@ -10,8 +14,23 @@ h2 {
 
 img {
     max-width: 100%;
+    padding-top: 3%;
 }
 
 figure {
     margin: 0;
+}
+
+@media screen and (min-width: 480px) {
+    * {
+        background-color: red;
+        font-size: 15px;
+        margin: 3%;
+    }
+
+    .cats h2 {
+        flex-flow: row wrap;
+        gap: 24px;
+    }
+    
 }
