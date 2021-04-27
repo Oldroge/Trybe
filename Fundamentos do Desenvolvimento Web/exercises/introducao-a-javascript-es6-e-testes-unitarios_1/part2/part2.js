@@ -10,3 +10,14 @@ function factorial(n) {
   return result;
 }
 console.log(factorial(7));
+
+/* 2. Cri uma função que receba uma frase e retorne qual a maior palavra. */
+
+function findLongestWord (str) {
+  let phraseArray = str.split(' ');
+  let longestWord = phraseArray.sort(function(a, b) {
+    return b.length - a.length;
+  });
+  return longestWord[0];
+}
+console.log(findLongestWord('Antônio foi no banheiro e não sabemos o que aconteceu'));
