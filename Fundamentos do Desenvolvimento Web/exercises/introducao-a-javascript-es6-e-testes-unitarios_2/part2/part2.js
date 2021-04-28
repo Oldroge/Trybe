@@ -26,6 +26,18 @@ function changeTheMorning(obj, key, value) {
   accessObj[key] = value;
   console.log(accessObj)
 }
-
 changeTheMorning(lesson2, 'Turno', 'Manhã')
 
+console.log('========================================')
+
+/* 2. Crie uma função para listar as keys de um objeto. Essa função deve receber um objeto como parâmetro. */
+console.log('========================================')
+
+
+function listTheKeys(obj) {
+  const keyLessons = Object.entries(obj);
+  for(index in keyLessons) {
+    console.log(keyLessons[index][0]);
+  }
+}
+listTheKeys(lesson1);
