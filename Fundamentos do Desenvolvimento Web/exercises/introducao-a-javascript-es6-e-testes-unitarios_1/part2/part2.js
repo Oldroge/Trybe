@@ -16,8 +16,27 @@ console.log(factorial(7));
 function findLongestWord (str) {
   let phraseArray = str.split(' ');
   let longestWord = phraseArray.sort(function(a, b) {
-    return b.length - a.length;
+    return a.length - b.length;
   });
   return longestWord[0];
 }
 console.log(findLongestWord('Antônio foi no banheiro e não sabemos o que aconteceu'));
+
+/* 3. Crie uma página que contenha:
+
+- Um botão ao qual será associado um event listener;
+
+- Uma variável clickCount no arquivo JavaScript que acumule o número de clicks no botão;
+
+- Um campo no HTML que vá atualizando a quantidade de clicks no botão conforme a variável clickCount é atualizada.*/
+
+let bringTagP = document.querySelector('p');
+let createButton = document.createElement('button');
+let clickCount = 0;
+document.body.appendChild(createButton);
+createButton.textContent = 'Click';
+
+document.addEventListener('click', () => {
+  bringTagP = clickCount += 1
+  return bringTagP;
+})
