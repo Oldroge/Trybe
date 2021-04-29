@@ -22,7 +22,7 @@ const lesson3 = {
 */
 
 function changeTheMorning(obj, key, value) {
-  const accessObj = Object.assign({}, obj);
+  const accessObj = Object.assign(obj);
   accessObj[key] = value;
   console.log(accessObj)
 }
@@ -62,3 +62,18 @@ function listValues(obj) {
 }
 console.log('A lista de valores são:')
 listValues(lesson2);
+
+/* 5. Crie um objeto de nome allLessons , que deve agrupar todas as aulas através do Object.assign . Cada chave desse novo objeto será uma aula, sendo essas chaves: lesson1 , lesson2 e lesson3.
+*/ 
+console.log('========================================')
+console.log('========================================')
+
+function newObject(lesson1, lesson2, lesson3) {
+  const allLessons = {
+    lesson1,
+    lesson2,
+    lesson3,
+  };
+  console.log(allLessons);
+}
+newObject(lesson1, lesson2, lesson3);
