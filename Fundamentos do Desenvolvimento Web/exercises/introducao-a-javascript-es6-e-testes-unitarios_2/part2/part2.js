@@ -41,3 +41,10 @@ function listTheKeys(obj) {
   }
 }
 listTheKeys(lesson1);
+
+console.log('========================================')
+console.log('========================================')
+
+/* 3. Crie uma função para mostrar o tamanho de um objeto. */
+const objectLength = (obj) => Object.entries(obj).length;
+console.log(objectLength(lesson2));
