@@ -68,12 +68,6 @@ listValues(lesson2);
 console.log('========================================')
 console.log('========================================')
 
-function newObject(lesson1, lesson2, lesson3) {
-  const allLessons = {
-    lesson1,
-    lesson2,
-    lesson3,
-  };
-  console.log(allLessons);
-}
-newObject(lesson1, lesson2, lesson3);
+const newObject = Object.assign({}, {lesson1}, {lesson2}, {lesson3});
+
+console.log(newObject);
