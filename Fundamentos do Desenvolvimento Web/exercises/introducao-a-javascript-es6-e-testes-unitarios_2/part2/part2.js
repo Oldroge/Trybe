@@ -40,6 +40,7 @@ function listTheKeys(obj) {
     console.log(keyLessons[index][0]);
   }
 }
+console.log('A lista de chaves são:')
 listTheKeys(lesson1);
 
 console.log('========================================')
@@ -47,4 +48,17 @@ console.log('========================================')
 
 /* 3. Crie uma função para mostrar o tamanho de um objeto. */
 const objectLength = (obj) => Object.entries(obj).length;
-console.log(objectLength(lesson2));
+console.log(`O tamanho deste objeto é: ${objectLength(lesson2)}`);
+
+/* 4. Crie uma função para listar os valores de um objeto. Essa função deve receber um objeto como parâmetro. */
+console.log('========================================')
+console.log('========================================')
+
+function listValues(obj) {
+  const valueLesson = Object.entries(obj);
+  for (index in valueLesson) {
+    console.log(valueLesson[index][1]);
+  }
+}
+console.log('A lista de valores são:')
+listValues(lesson2);
