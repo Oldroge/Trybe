@@ -68,6 +68,14 @@ listValues(lesson2);
 console.log('========================================')
 console.log('========================================')
 
-const newObject = Object.assign({}, {lesson1}, {lesson2}, {lesson3});
+const allLessons = Object.assign({}, {lesson1}, {lesson2}, {lesson3});
 
-console.log(newObject);
+console.log(allLessons);
+
+console.log('========================================')
+console.log('========================================')
+
+/* 6. Usando o objeto criado no exercício 5, crie uma função que retorne o número total de estudantes em todas as aulas. */
+
+const objAllStudents = Object.keys(allLessons).map(a => allLessons[a].numeroEstudantes).reduce((a, b)=>a + b);
+console.log(`Número de alunos matriculados: ${objAllStudents}`);
