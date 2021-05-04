@@ -70,6 +70,4 @@ function smallerName() {
   
   return nameBook;
 }
-
-
 assert.strictEqual(smallerName(), 'Duna');

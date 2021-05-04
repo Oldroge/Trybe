@@ -75,7 +75,7 @@ const expectedResult = {
 };
 
 function getNamedBook() {
-  // escreva seu código aqui
+  return books.find((biggestLength) => biggestLength.name.length === 26);
 }
-
+console.log(getNamedBook());
 assert.deepStrictEqual(getNamedBook(), expectedResult);
