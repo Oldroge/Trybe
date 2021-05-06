@@ -27,13 +27,13 @@ const warriorDamage = () => Math.floor(Math.random() * (warrior.strength * warri
 const mageDamage = () => {
   let mageMana = 200;
   const maxDmg = Math.floor(Math.random() * (mage.intelligence * 2) + 1);
-  console.log(maxDmg);
   const turnStats = {
     mana: 0,
     warning: 'Não tenho mais mana...',
   }
   if (maxDmg > 0) {
-    return mageMana -= 15;
+    mageMana -= 15;
+    return maxDmg;
   } else {
     return turnStats.warning;
   }
