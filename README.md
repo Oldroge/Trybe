@@ -1,1 +1,1 @@
-Diretório de exercicíos feitos ao logo do curso da Trybe.
+Repositórios de exercícios e projetos feitos ao longo do curso da Trybe.
