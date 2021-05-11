@@ -1,0 +1,3 @@
+At this class we learn about CSS Flexbox Layout (flexible Box). We saw that flexbox is a module that provides a organize more efficient way, align and distribute spaces between itens at a container, even when your size is unknown.
+A container can be any element HTML that contains other elements, like, a <div> tag or <section> tag, for example. This dad element is called container dad, and the elements sons are the itens.
+The principal idea behind the "Flex layout" is provide to container to change ze skills* (width and height) and the itens order to better get the avaible spaces. This skills provide us adapt a page in all devices and screen sizes.
