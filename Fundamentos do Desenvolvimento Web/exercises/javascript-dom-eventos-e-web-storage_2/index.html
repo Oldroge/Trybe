@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 5.2</title>
+    <style>
+      div {
+        border-color: black;
+        border-style: solid;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+
+      .main-content .left-content {
+        background-color: green;
+        width: 60%;
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .main-content .left-content .small-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 100%;
+      }
+
+      .main-content .right-content {
+        background-color: blue;
+        width: 60%;
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      .main-content .description {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      //Add a <h1> tag
+      let title = document.querySelector('body');
+      let newTitle = document.createElement('h1');
+      newTitle.innerText = 'Exercício 5.2 - JavaScript DOM';
+      title.appendChild(newTitle);
+
+      // Add a <div> tag with the class main-content inside the body
+      let newDiv = document.createElement('div');
+      let mainContent = document.querySelector('body').appendChild(newDiv);
+      newDiv.className += 'main-content';
+
+      //Add the <div> tag with the class center-content as tags <div> son
+      let centerContent = document.createElement('div');
+      let dadMainContent = document.querySelector('.main-content').appendChild(centerContent);
+      centerContent.className += 'center-content';
+
+      //Add the <p> tag as tags <div> son create on step 3 and put some text
+      let newParagraph = document.createElement('p');
+      let dadCenterContent = document.querySelector('.center-content').appendChild(newParagraph);
+      newParagraph.innerText = 'Hello everybody! I am Roge, and here are my exercises!';
+
+      //Add the <div> tag with tha class 'left-content as tags <div> son create on step 2'
+      let leftContent = document.createElement('div');
+      let classLeftContent = document.querySelector('.main-content').appendChild(leftContent);
+      leftContent.className += 'left-content';
+      
+      //Add the <div> tag with the class 'right-content' as tags <div> son create on step 2
+      let rightContent = document.createElement('div');
+      let classRightContent = document.querySelector('.main-content').appendChild(rightContent);
+      rightContent.className += 'right-content';
+
+      //Add an image with 'src' defined to the gave link on the trybe course and class small-image. This element should be tags <div> son on step 5
+      let smallImage = document.createElement('img');
+      let classSmallImage = document.querySelector('.left-content').appendChild(smallImage);
+      smallImage.className += 'left-content';
+      smallImage.setAttribute('src', 'https://picsum.photos/200');
+
+      //Add a unordered list with the values from 1 to 10 in full as list values. This list should be tags <div> son created on step 6
+
+      let allList = [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10        
+      ];
+      
+      let unorderedList = document.createElement('ul');
+      let getTheDad = document.querySelector('.right-content').appendChild(unorderedList);
+
+      let recoverClass = document.querySelector('ul');
+
+      for (let indexList = 0; indexList < allList.length; indexList += 1) {
+      let listItens = allList[indexList];
+
+      let createList = document.createElement('li');
+      let birthAList = document.querySelector('ul').appendChild(createList);
+
+      createList.innerText = listItens;
+      
+      }
+      
+      //Add 3 <h3> tags, all been tags <div> son created on step 2
+      let newSubtitle = document.createElement('h3');
+      let secondNewSubtitle = document.createElement('h3');
+      let thirdNewSubtitle = document.createElement('h3');
+
+      let firstRecoverStepTwo = document.querySelector('.main-content').appendChild(newSubtitle);
+      let secondRecoverStepTwo = document.querySelector('.main-content').appendChild(secondNewSubtitle);
+      let thirdRecoverStepTwo = document.querySelector('.main-content').appendChild(thirdNewSubtitle);
+      
+      //After create the web page, we make some changes and removals
+      
+      //Add the '.title' class on tag <h1> created
+      newTitle.className += 'title';
+
+      //Add a '.description' class at the 3 <h3> tags created
+      newSubtitle.className += 'description';
+      secondNewSubtitle.className += 'description';
+      thirdNewSubtitle.className += 'description';
+
+      //Remove the created <div> tag on step 5 (the tag that have 'right-content' class)
+      let removeDiv = document.querySelector('.right-content')
+      removeDiv.parentNode.removeChild(removeDiv);
+
+      //Center the created <div> on step 6 (the one that have 'right-content' class). Hint: to center, just set up the margin-right: auto from <div>
+      
+      //Change the background color from tags <div> dad element created on step 3 (the one that have the '.center-content' class) to green color.
+      centerContent.style.backgroundColor = 'green';
+
+      //Remove the last two elements(nine and ten) from created list on step 8
+      allList.pop();
+      allList.pop();
+
+    </script>
+  </body>
+</html>

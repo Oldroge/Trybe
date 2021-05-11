@@ -1,0 +1,30 @@
+.first-div:hover {
+    border-style: solid;
+    border-color: yellow;
+
+}
+
+.second-div:hover {
+    border-style: solid;
+    border-color: blue;
+    
+}
+
+.additional-div:hover {
+    border-style: solid;
+    border-color: red;
+    border-width: 50px;
+    
+}
+
+.dark-div:hover {
+    border-style: solid;
+    border-color: black;
+    
+}
+
+.clear-div:hover {
+    border-style: solid;
+    border-color: white;
+    
+}
