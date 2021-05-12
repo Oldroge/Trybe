@@ -1,4 +1,4 @@
-//2. Agora, dado o código abaixo, qual a ordem de finalização de execução das linhas comentadas?
+//2. Agora, dado o código abaixo, qual a ordem de finalização de execução das linhas comentadas?  
 
 const planetDistanceFromSun = ({ name, distanceFromSun: { value, measurementUnit } }) =>
   `${name} is ${value} ${measurementUnit} apart from the Sun`
