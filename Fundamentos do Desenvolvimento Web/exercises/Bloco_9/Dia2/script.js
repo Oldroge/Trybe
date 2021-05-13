@@ -33,8 +33,8 @@ window.onload = () => fetchJoke();
 
     });
     newPromise
-      .then(() => console.log('Foi'))
-      .catch(() => console.log('Não foi'))
+      .then(() => console.log('Não rodou'))
+      .catch(() => console.log('É mais de oito mil! Essa promise deve estar quebrada!'))
 };
 
 fetchPromise();
