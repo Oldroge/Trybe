@@ -14,3 +14,27 @@ const fetchJoke = () => {
     );
 };
 window.onload = () => fetchJoke();
+
+  const fetchPromise = () => {
+    const newPromise = new Promise((resolve, reject) => {
+
+      const arrayNumbers = Array.from(
+        { length: 10 },
+        () => Math.floor(Math.random() * 51)
+      );
+
+      const sum = arrayNumbers.map(randomNumber => randomNumber * randomNumber)
+      .reduce((sum, number) => sum + number);
+
+      if (sum < 8000) {
+        return resolve();
+      }
+      return reject();
+
+    });
+    newPromise
+      .then(() => console.log('Foi'))
+      .catch(() => console.log('Não foi'))
+};
+
+fetchPromise();
