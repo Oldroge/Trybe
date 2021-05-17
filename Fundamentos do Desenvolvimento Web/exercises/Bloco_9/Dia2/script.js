@@ -33,7 +33,8 @@ window.onload = () => fetchJoke();
 
     });
     newPromise
-      .then(() => console.log('Não rodou'))
+      .then(sum => [2, 3, 5, 10].map(number => sum / number))
+      .then(sumAllNumbers => sumAllNumbers.reduce((number, acc) => number + acc, 0))
       .catch(() => console.log('É mais de oito mil! Essa promise deve estar quebrada!'))
 };
 
