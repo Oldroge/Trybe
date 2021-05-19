@@ -8,9 +8,6 @@ const multiplyByTwo = (number) => {
   }
   return number * 2;
 };
-multiplyByTwo(4);
-multiplyByTwo();
-multiplyByTwo('a');
 
 const workDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 const weekDays = ['Sunday', ...workDays, 'Saturday'];
