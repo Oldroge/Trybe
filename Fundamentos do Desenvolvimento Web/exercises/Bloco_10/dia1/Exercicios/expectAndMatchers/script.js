@@ -9,15 +9,16 @@ const multiplyByTwo = (number) => {
   return number * 2;
 };
 
-const workDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-const weekDays = ['Sunday', ...workDays, 'Saturday'];
 
-module.exports = {
-  arr,
-  obj,
-  n,
-  z,
-  multiplyByTwo,
-  workDays,
-  weekDays
-}
+// const workDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+// const weekDays = ['Sunday', ...workDays, 'Saturday'];
+
+// module.exports = {
+//   arr,
+//   obj,
+//   n,
+//   z,
+//   multiplyByTwo,
+//   workDays,
+//   weekDays
+// }
