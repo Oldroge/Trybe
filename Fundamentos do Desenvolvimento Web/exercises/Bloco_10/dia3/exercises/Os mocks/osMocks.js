@@ -6,3 +6,5 @@ module.exports = {
   retornaNumeroAleatorio,
   divisivelPorDois
 }
+
+console.log(divisivelPorDois());
