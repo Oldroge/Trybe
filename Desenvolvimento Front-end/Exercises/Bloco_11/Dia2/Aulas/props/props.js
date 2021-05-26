@@ -31,5 +31,3 @@ export default App;
 
 //Isso signifca que o React monta um objeto com as informações colocadas no componete Greeting acima, exemplo:
 const props = { name: 'Samuel', lastName: 'Silva' };
-
-
