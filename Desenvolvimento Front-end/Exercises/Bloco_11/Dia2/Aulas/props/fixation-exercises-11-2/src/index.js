@@ -7,7 +7,6 @@ import Greeting from './Greeting';
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <Greeting name='Roge' lastName='Martins' />
   </React.StrictMode>,
   document.getElementById('root')
 );
