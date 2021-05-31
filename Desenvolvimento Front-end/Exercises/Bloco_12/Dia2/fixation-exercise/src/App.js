@@ -12,10 +12,13 @@ class App extends React.Component {
 
   }
 
-  handleChange(event) {
+  handleChange({ target }) {
+    const { name } = target.value;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
     this.setState({
-      estadoFavorito: event.target.value
-    })
+      [name]: value,
+    });
   }
 
   render() {
@@ -26,16 +29,20 @@ class App extends React.Component {
           <select></select>
           <input 
             type="checkbox"
-            name="Go"
+            name="go"
+            value={this.state.go}
+            onChange={this.handleChange}
           />
           <input 
             type="number"
-            name="Age"
+            name="age"
+            value={this.state.age}
+            onChange={this.handleChange}
           />
           <label>
             <textarea 
               name='estado' 
-              value={this.state.estadoFavorito} 
+              // value={this.state.estadoFavorito} 
               onChange={this.handleChange} 
             />
           </label>
