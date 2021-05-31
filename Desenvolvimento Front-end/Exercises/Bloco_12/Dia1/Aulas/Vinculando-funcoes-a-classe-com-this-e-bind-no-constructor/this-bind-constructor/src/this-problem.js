@@ -1,11 +1,6 @@
 import React from 'react';
 
 class ThisProblem extends React.Component {
-  constructor() {
-    super()
-    this.handleClick = this.handleClick.bind(this);
-  }
-
   handleClick() {
     // Essa chamada ao `this` retorna `undefined`? !
     console.log(this)
