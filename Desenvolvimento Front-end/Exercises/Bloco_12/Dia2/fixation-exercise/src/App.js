@@ -1,4 +1,5 @@
 import React from 'react';
+import TextArea from './TextArea';
 import './App.css';
 
 class App extends React.Component {
@@ -7,13 +8,18 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this);
 
     this.state = {
-      estadoFavorito: ''
+      estadoFavorito: '',
+      name: '',
+      email: '',
+      idade: 0,
+      vai: false,
+      palavraChave: ''
     }
 
   }
 
   handleChange({ target }) {
-    const { name } = target.value;
+    const { name } = target.value.name;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
     this.setState({
@@ -29,23 +35,18 @@ class App extends React.Component {
           <select></select>
           <input 
             type="checkbox"
-            name="go"
-            value={this.state.go}
+            name="vai"
+            value={this.state.vai}
             onChange={this.handleChange}
           />
           <input 
             type="number"
-            name="age"
-            value={this.state.age}
+            name="idade"
+            value={this.state.idade}
             onChange={this.handleChange}
           />
-          <label>
-            <textarea 
-              name='estado' 
-              // value={this.state.estadoFavorito} 
-              onChange={this.handleChange} 
-            />
-          </label>
+          <TextArea value={this.state.estadoFavorito} handleChange={this.handleChange} />
+          
         </form>
       </div>
     )
