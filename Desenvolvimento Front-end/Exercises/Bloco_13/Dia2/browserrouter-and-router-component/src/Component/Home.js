@@ -1,0 +1,17 @@
+import { Component } from "react"
+// import About from './About'
+// import Contact from './Contact'
+
+// import { Route } from 'react-router-dom'
+
+class Home extends Component {
+  render() {
+    return (
+      <div>
+        <h1>Home Page</h1>
+      </div>
+    )
+  }
+}
+
+export default Home;
