@@ -15,10 +15,11 @@ Now, the key notes will contain all of the state associated with our notes and h
 
 There are counterReducer() and authReducer() functions provided in the code editor, along with a Redux store. Finish writing the rootReducer() function using the Redux.combineReducers() method. Assign counterReducer to a key called count and authReducer to a key called auth.
 */
-
+// Variáveis de leitura
 const INCREMENT = 'INCREMENT';
 const DECREMENT = 'DECREMENT';
 
+// Reducer criando o estado de increment or decrement
 const counterReducer = (state = 0, action) => {
   switch(action.type) {
     case INCREMENT:
@@ -30,9 +31,11 @@ const counterReducer = (state = 0, action) => {
   }
 };
 
+// Variáveis de leitura
 const LOGIN = 'LOGIN';
 const LOGOUT = 'LOGOUT';
 
+// Criado um outro reducer para definir se foi autenticado ou não, state inicial como authenticated: false
 const authReducer = (state = {authenticated: false}, action) => {
   switch(action.type) {
     case LOGIN:
@@ -48,9 +51,11 @@ const authReducer = (state = {authenticated: false}, action) => {
   }
 };
 
+// Variável que utiliza o método do Redux combineReducers(), que é uma boa práticar utilizar mesmo quando só tem 1 reducer, pois futuramente com o crescimento da aplicação pode ser adicionado outros.
 const rootReducer = Redux.combineReducers({
   count: counterReducer,
   auth: authReducer,
 })
 
+// Store central.
 const store = Redux.createStore(rootReducer);

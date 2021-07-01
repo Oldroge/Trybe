@@ -9,19 +9,26 @@ Next, finish writing the switch statement in the notesReducer(). You need to add
 The action is dispatched at the bottom of the code. Once you're finished, run the code and watch the console. That's all it takes to send action-specific data to the store and use it when you update store state.
 */
 
+// Variável de leitura
 const ADD_NOTE = 'ADD_NOTE';
 
+// Reducer definindo estado como 'Initial State'
 const notesReducer = (state = 'Initial State', action) => {
+  // Switch solicitando a ação de type
   switch(action.type) {
     // Change code below this line
+    // Caso o type seja 'ADD_NOTE'
     case ADD_NOTE:
+      // Retorna a ação de text
     return action.text
     // Change code above this line
     default:
+      // Por padrão retorna state atual caso nenhuma das condições acima seja verdade
       return state;
   }
 };
 
+// Função para adicionar o texto
 const addNoteText = (note) => {
   // Change code below this line
   return {
@@ -31,6 +38,7 @@ const addNoteText = (note) => {
   // Change code above this line
 };
 
+// Store central salvando iformações
 const store = Redux.createStore(notesReducer);
 
 console.log(store.getState());
