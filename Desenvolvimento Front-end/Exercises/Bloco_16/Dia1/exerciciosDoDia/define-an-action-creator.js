@@ -5,11 +5,13 @@ After creating an action, the next step is sending the action to the Redux store
 Define a function named actionCreator() that returns the action object when called.
 */
 
+// Ação criada
 const action = {
   type: 'LOGIN'
 }
 // Define an action creator here:
 
+// Função que roda a ação
 function actionCreator() {
   return action;
 }
