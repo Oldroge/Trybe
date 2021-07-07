@@ -1,0 +1,11 @@
+#name-input:valid {
+  text-transform: uppercase;
+}
+
+#data-field, #curriculum-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  line-height: 1.5;
+}
+
