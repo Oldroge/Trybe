@@ -19,6 +19,8 @@ export default class PersonalData extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this);
     this.clearNumber = this.clearNumber.bind(this);
+    this.mouseEnter = this.mouseEnter.bind(this);
+    this.printValueState = this.printValueState.bind(this);
   }
 
   handleChange({ target }) {
@@ -36,6 +38,25 @@ export default class PersonalData extends React.Component {
     })
   }
 
+  mouseEnter() {
+    alert('Preencha com cuidado esta informação.');
+  }
+
+  printValueState() {
+    const {
+            name,
+            email,
+            cpf,
+            address,
+            city,
+            state,
+            resum,
+            office,
+            describe,
+          } = this.state;
+    console.log(name, email, cpf, address, city, state, resum, office, describe);
+  }
+
   render() {
     let {
           name,
@@ -46,7 +67,7 @@ export default class PersonalData extends React.Component {
           state,
           resum,
           office,
-          describe 
+          describe,
         } = this.state;
     return (
     <>
@@ -172,11 +193,12 @@ export default class PersonalData extends React.Component {
         <textarea
           type="text"
           maxLength="40"
-          rows="10"
-          cols="64"
+          rows="3"
+          cols="20"
           name="office"
           value={ office }
           onChange={ this.handleChange }
+          onMouseEnter={ this.mouseEnter }
           required
         ></textarea>
       </label>
@@ -198,7 +220,7 @@ export default class PersonalData extends React.Component {
       </label>
     </fieldset>
 
-    <button>Enviar</button>
+    <button onClick={ this.printValueState }>Enviar</button>
     <button>Limpar</button>
     </>
     )
