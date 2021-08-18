@@ -1,4 +1,4 @@
-CREATE DATABASE `Escola`;
+CREATE DATABASE `Escola`; 
 CREATE TABLE IF NOT EXISTS Escola.Alunos (
     `Nome` VARCHAR(7) CHARACTER SET utf8,
     `Idade` INT
