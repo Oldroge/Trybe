@@ -7,4 +7,3 @@
 -- Nota: Allow null, int type    
 
  SELECT * FROM roge_teste.Filme;
- 
