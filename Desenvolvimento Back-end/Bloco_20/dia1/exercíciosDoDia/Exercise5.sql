@@ -1,0 +1,3 @@
+-- Exercise 5: After resolve the exercise before, answer: Which type of relationship the city table do with the table
+-- country?
+-- Answer: N:1, in case, many to one 
