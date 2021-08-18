@@ -1,0 +1,3 @@
+-- Exercise 2: Find out how is possible create a table without use SQL code using the MySql workbench.
+-- Answer: Click with the right button and select the Create table option or you can click too in 'Create a new table'
+-- icon below the Query tab.

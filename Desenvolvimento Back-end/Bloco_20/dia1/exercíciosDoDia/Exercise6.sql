@@ -1,0 +1,2 @@
+-- Exercise 6: Which type of relationship the country table do to the city table?
+-- Answer: 1:N, in case, one to many
