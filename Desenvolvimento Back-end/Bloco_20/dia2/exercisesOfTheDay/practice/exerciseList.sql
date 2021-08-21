@@ -7,3 +7,6 @@ SELECT 1 AS First_number, 2 AS second_number, 3 AS third_number;
 -- Exercise 3: Write a query to display the numbers sum 10 and 15;
 SELECT 10 + 15;
 -- Answer: 25;
+
+-- Exercise 4: Wirte a query to display any arithmetic expression result;
+SELECT 10 + 18 * 37 / 42;
