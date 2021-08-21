@@ -20,3 +20,6 @@ SELECT * FROM Scientists;
 
 -- Exercise 7: Write a query to display the scientist names in alphatic order;
 SELECT * FROM Scientists ORDER BY Name ASC;
+
+-- Exercise 8: Write a query to display the Projects name in alphatic order;
+SELECT * FROM Projects ORDER BY Name ASC;
