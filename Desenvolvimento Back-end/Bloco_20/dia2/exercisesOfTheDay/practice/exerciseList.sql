@@ -15,5 +15,8 @@ SELECT 10 + 18 * 37 / 42;
 USE Scientists;
 SELECT * FROM Scientists;
 
--- Exercise 6: Write a query to display the each name as "Nome do projeto" and the hours as "Tempo de Trabalho";
+-- Exercise 6: Write a query to display each name as "Nome do projeto" and the hours as "Tempo de Trabalho";
  SELECT Name AS 'Nome do Projeto', Hours AS 'Tempo de Trabalho' FROM Projects;
+
+-- Exercise 7: Write a query to display the scientist names in alphatic order;
+SELECT * FROM Scientists ORDER BY Name ASC;
