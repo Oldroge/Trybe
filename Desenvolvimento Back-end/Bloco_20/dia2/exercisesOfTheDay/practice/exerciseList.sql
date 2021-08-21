@@ -32,4 +32,7 @@ SELECT CONCAT('O projeto ', Name, ' precisou de ', Hours, ' para ser concluído.
 SELECT name, hours FROM Projects ORDER BY hours DESC LIMIT 3;
 
 -- Exercise 11: Write a query to display code from all table projects AssignedTo without being repeated;
-SELECT DISTINCT Project FROM AssignedTo; 
+SELECT DISTINCT Project FROM AssignedTo;
+
+-- Exercise 12: Write a query to display the project name with bigger hours quantity;
+SELECT name, hours FROM Projects ORDER BY hours limit 1;
