@@ -14,3 +14,6 @@ SELECT 10 + 18 * 37 / 42;
 -- Exercise 5: Write a query to display informations from all scientists;
 USE Scientists;
 SELECT * FROM Scientists;
+
+-- Exercise 6: Write a query to display the each name as "Nome do projeto" and the hours as "Tempo de Trabalho";
+ SELECT Name AS 'Nome do Projeto', Hours AS 'Tempo de Trabalho' FROM Projects;
