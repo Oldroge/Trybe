@@ -35,4 +35,8 @@ SELECT name, hours FROM Projects ORDER BY hours DESC LIMIT 3;
 SELECT DISTINCT Project FROM AssignedTo;
 
 -- Exercise 12: Write a query to display the project name with bigger hours quantity;
-SELECT name, hours FROM Projects ORDER BY hours limit 1;
+SELECT name, hours FROM Projects ORDER BY hours LIMIT 1;
+
+-- Exercise 13: Write a query to display the second project name with the smallest hours quantity;
+SELECT name, hours FROM Projects ORDER BY hours LIMIT 1 OFFSET 1;
+
