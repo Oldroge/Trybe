@@ -7,5 +7,5 @@ SELECT * FROM sakila.film;
 SELECT title, release_year, rating FROM sakila.film;
 
 -- Exercise 3: How many movies we have registered?
-
 SELECT COUNT(*) FROM sakila.film;
+-- Answer: 1000
