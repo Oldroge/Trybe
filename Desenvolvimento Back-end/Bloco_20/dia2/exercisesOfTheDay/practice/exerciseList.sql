@@ -10,3 +10,7 @@ SELECT 10 + 15;
 
 -- Exercise 4: Wirte a query to display any arithmetic expression result;
 SELECT 10 + 18 * 37 / 42;
+
+-- Exercise 5: Write a query to display informations from all scientists;
+USE Scientists;
+SELECT * FROM Scientists;
