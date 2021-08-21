@@ -23,3 +23,7 @@ SELECT * FROM Scientists ORDER BY Name ASC;
 
 -- Exercise 8: Write a query to display the Projects name in alphatic order;
 SELECT * FROM Projects ORDER BY Name ASC;
+
+-- Exercise 9: Write a query that display the string "O projeto Name precisou de Hours horas para ser
+-- concluído." to each project;
+SELECT CONCAT('O projeto ', Name, ' precisou de ', Hours, ' para ser concluído.') FROM Projects;
