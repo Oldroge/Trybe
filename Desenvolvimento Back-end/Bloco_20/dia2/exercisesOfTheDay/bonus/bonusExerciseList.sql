@@ -11,3 +11,6 @@ SELECT Provider, Price FROM Provides ORDER BY Price DESC LIMIT 4 OFFSET 2;
 -- Exercise 4: Write a query to display all informations of the pieces that are providers by HAL employer
 -- Order the results by decreasing form pieces prices;
 SELECT * FROM Pieces, Providers, Provides WHERE Provider="HAL" ORDER BY Price DESC;
+
+-- Exercise 5: Write a query to display by how many companies the piece 1 is provided;
+SELECT COUNT(Piece) FROM Provides WHERE Piece=1;
