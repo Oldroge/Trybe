@@ -18,3 +18,5 @@ SELECT * FROM film WHERE title LIKE '___gon%' AND description LIKE '%Documentary
 -- Lesson 6: Display the two movies whose titles or finish with Academy or start with mosquito;
 SELECT * FROM film WHERE title LIKE '%academy' OR title LIKE 'mosquito%';
 
+-- Lesson 7: Display the six movies that contains the monkey word and sumo in your describes;
+SELECT * FROM film WHERE description LIKE '%monkey%' AND description LIKE '%sumo%';
