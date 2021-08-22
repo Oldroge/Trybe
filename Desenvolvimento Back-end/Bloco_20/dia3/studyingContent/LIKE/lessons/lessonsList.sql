@@ -10,3 +10,7 @@ SELECT * FROM film WHERE description LIKE '%girl%' AND title LIKE '%lord';
 
 -- Lesson 4: Display the two cases that from the 4º character in the film title, have the gon word;
 SELECT * FROM film WHERE title LIKE '___gon%';
+
+-- Lesson 5: Display the only case tha from the 4º character in the film title, have the gon word and in
+-- description have the Documentary word;
+SELECT * FROM film WHERE title LIKE '___gon%' AND description LIKE '%Documentary%';
