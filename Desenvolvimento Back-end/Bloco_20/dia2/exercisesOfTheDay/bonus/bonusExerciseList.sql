@@ -3,3 +3,7 @@ SELECT Piece, Price FROM Provides WHERE Provider='RBT';
 
 -- Exercise 2: Write a query to display all informations of the five pieces with the biggest price;
 SELECT * FROM Pieces, Providers, Provides ORDER BY Price DESC LIMIT 5;
+
+-- Exercise 3: Write a query to display the employer names and price of the pieces with the four biggest prices,
+-- starting the list from third item;
+SELECT Provider, Price FROM Provides ORDER BY Price DESC LIMIT 4 OFFSET 2;
