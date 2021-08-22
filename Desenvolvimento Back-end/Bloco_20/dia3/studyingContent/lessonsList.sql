@@ -16,3 +16,6 @@ ORDER BY replacement_cost DESC LIMIT 100;
 
 -- Lesson 4: How many customers are active in the store 1?
 SELECT COUNT(active) FROM customer WHERE active = 1;
+
+-- Lesson 5: Display all customer details that dont are active in the store 1;
+SELECT * FROM customer WHERE store_id = 1 AND active = 0;
