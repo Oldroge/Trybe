@@ -40,3 +40,10 @@ SELECT name, hours FROM Projects ORDER BY hours LIMIT 1;
 -- Exercise 13: Write a query to display the second project name with the smallest hours quantity;
 SELECT name, hours FROM Projects ORDER BY hours LIMIT 1 OFFSET 1;
 
+-- Exercise 14: Write a query to display all informations from five projects with the smallest horus quantity;
+SELECT * FROM Projects ORDER BY hours LIMIT 5;
+
+-- Exercise 15: Write a query that displays the string 'Existem 'Number' cientistas na tabela Scientists', that
+-- Number refer the scientist quantity.
+USE Scientists;
+SELECT CONCAT('Existem ', COUNT(Name), ' cientistas na tabela Scientists') FROM Scientists;
