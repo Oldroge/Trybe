@@ -14,3 +14,7 @@ SELECT * FROM film WHERE title LIKE '___gon%';
 -- Lesson 5: Display the only case tha from the 4º character in the film title, have the gon word and in
 -- description have the Documentary word;
 SELECT * FROM film WHERE title LIKE '___gon%' AND description LIKE '%Documentary%';
+
+-- Lesson 6: Display the two movies whose titles or finish with Academy or start with mosquito;
+SELECT * FROM film WHERE title LIKE '%academy' OR title LIKE 'mosquito%';
+
