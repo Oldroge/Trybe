@@ -19,3 +19,7 @@ SELECT COUNT(active) FROM customer WHERE active = 1;
 
 -- Lesson 5: Display all customer details that dont are active in the store 1;
 SELECT * FROM customer WHERE store_id = 1 AND active = 0;
+
+-- Lesson 6: We need to discover which are the 50 movies made only to adults with the lowest rental fee,
+-- for may we make a better disclosure these movies. Case draw, order in aphatic order by title;
+SELECT * FROM film WHERE rating = 'NC-17' ORDER BY rental_rate ASC, title LIMIT 50;
