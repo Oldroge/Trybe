@@ -19,3 +19,8 @@ HOUR(rental_date) AS Hora,
 MINUTE(rental_date) AS Minuto,
 SECOND(rental_date) AS Segundo
 FROM rental WHERE rental_id = 10330;
+
+-- Lesson 4: Assemble a query that returns all payment datas done on the day 2005-07-28 as from 22 hours;
+SELECT * FROM payment
+WHERE DATE(payment_date) = '2005-07-28'
+AND HOUR(payment_date) >= 22;
