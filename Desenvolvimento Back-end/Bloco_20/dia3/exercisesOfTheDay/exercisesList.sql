@@ -10,3 +10,8 @@ WHERE code = 2 ORDER BY Fornecedor;
 -- have the letter N;
 SELECT peca, Preco, Fornecedor FROM Fornecimentos
 WHERE Fornecedor LIKE '%N%';
+
+-- Exercise 4: Write a query to display all informations from providers that are limited employer (LTDA).
+-- Order the results in alphatic order decreasing;
+SELECT * FROM Fornecedores
+WHERE name LIKE '%LTDA';
