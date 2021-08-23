@@ -15,3 +15,7 @@ WHERE Fornecedor LIKE '%N%';
 -- Order the results in alphatic order decreasing;
 SELECT * FROM Fornecedores
 WHERE name LIKE '%LTDA';
+
+-- Exercise 5: Write a query to display all emplyer numbers (providers) that contains the letter F in the code;
+SELECT COUNT(*) FROM Fornecedores WHERE code LIKE '%F%';
+
