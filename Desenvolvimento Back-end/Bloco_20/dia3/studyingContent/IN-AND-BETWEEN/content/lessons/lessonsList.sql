@@ -18,3 +18,9 @@ SELECT COUNT(payment_id) FROM payment WHERE payment_date BETWEEN('2005-05-01') A
 SELECT title, release_year, rental_duration FROM film
 WHERE rental_duration BETWEEN(3) AND (6)
 ORDER BY rental_duration DESC, title ASC;
+
+-- Lesson 5: Assemble a report that display the title and rate from first 500 films targeted to the rating G,
+-- PG and PG-13. The results should be ordered by title.
+SELECT title, rating FROM film
+WHERE rating IN ('G', 'PG', 'P')
+ORDER BY title LIMIT 500;
