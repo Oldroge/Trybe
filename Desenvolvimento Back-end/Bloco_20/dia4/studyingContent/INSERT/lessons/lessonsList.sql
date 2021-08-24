@@ -52,10 +52,20 @@ password
 'curtoRock'
 );
 
+-- Lesson 3: Select the 5 first table names and last names sakila.customer and register theses people as
+-- actores in the table sakila.actor;
+INSERT INTO actor(first_name, last_name)
+SELECT first_name, last_name
+FROM customer
+ORDER BY customer_id
+LIMIT 5;
+
 -- Lesson 4: Register three new categories at once in the table sakila.category;
 INSERT INTO category (name)
 VALUES ('Dance'), ('Best Sellers'), ('Radio');
 
 -- Lesson 5: Register a new store in the sakila.store;
+INSERT INTO store (manager_staff_id, address_id)
+VALUES (3, 3);
 
-SELECT * FROM category;
+SELECT * FROM store;
