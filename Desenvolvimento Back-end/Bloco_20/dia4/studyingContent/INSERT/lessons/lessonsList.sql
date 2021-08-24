@@ -51,4 +51,9 @@ password
 'Frank',
 'curtoRock'
 );
-SELECT * FROM staff;
+
+-- Lesson 3: Register three new categories at once in the table sakila.category;
+INSERT INTO category (name)
+VALUES ('Dance'), ('Best Sellers'), ('Radio');
+
+SELECT * FROM category;
