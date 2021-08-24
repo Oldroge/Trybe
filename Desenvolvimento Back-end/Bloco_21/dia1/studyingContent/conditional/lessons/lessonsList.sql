@@ -16,4 +16,13 @@ FROM film;
 -- A: "Not recommended for children under 17";
 -- If it does not fall into any of the above classifications: "No minors".
 
+SELECT title, rating,
+	CASE 
+		WHEN rating = 'G' THEN 'Livre para todos'
+        WHEN rating = 'PG' THEN 'Não recomendado para menores de 10 anos'
+        WHEN rating = 'PG-13' THEN 'Não recomendado para menores de 13 anos'
+        WHEN rating = 'R' THEN 'ão recomendado para menores de 17 anos'
+        ELSE 'Proibido para menores de idade'
+	END AS publico_alvo
+FROM film;
 
