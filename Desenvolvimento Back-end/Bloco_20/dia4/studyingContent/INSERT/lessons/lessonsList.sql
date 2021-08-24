@@ -52,8 +52,10 @@ password
 'curtoRock'
 );
 
--- Lesson 3: Register three new categories at once in the table sakila.category;
+-- Lesson 4: Register three new categories at once in the table sakila.category;
 INSERT INTO category (name)
 VALUES ('Dance'), ('Best Sellers'), ('Radio');
+
+-- Lesson 5: Register a new store in the sakila.store;
 
 SELECT * FROM category;
