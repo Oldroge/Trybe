@@ -26,5 +26,25 @@ FROM sakila.address
 GROUP BY district
 ORDER BY Address_number DESC;
 
+-- EXERCISES ABOUT HAVING:
+-- Lesson 1: Using the follow query, display only average durations that are between 115.0 to 121.50.
+-- In addition, give an alias (nickname) to generated column to AVG(length), so that makes the
+-- query readeble. Finish ordered the results by decreasing form;
+    SELECT rating, AVG(length) AS average_durantion
+    FROM sakila.film
+    GROUP BY rating
+    HAVING average_durantion
+    BETWEEN 115.0 AND 121.50
+    ORDER BY average_durantion DESC;
+
+-- Lesson 2: Using the follow query, display only the replacement cost values that are over of $3950.50.
+-- Give an alias that makes sense for SUM(replacement_cost), so that makes the query readeble.
+-- Finish ordering the results by crescent form;
+    SELECT rating, SUM(replacement_cost) AS expensive_rep_cost
+    FROM sakila.film
+    GROUP by rating
+    HAVING expensive_rep_cost > 3950.50
+    ORDER BY expensive_rep_cost ASC;
+
 
 
