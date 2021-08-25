@@ -9,3 +9,18 @@ SELECT 220 DIV 12;
 -- Lesson 3: Using the previous result, answer the follow question: Have we places remaining?
 -- If yes, how many?
 SELECT 220 MOD 12;
+
+-- Lesson 4: Assemble a query that generate a value between 15 and 20;
+SELECT ROUND(15 + (RAND() * 5));
+
+-- Lesson 5: Assemble a query that display the rounded value by 15.7515971 with a precision of the 
+-- 5 decimal places;
+SELECT ROUND(15.7515971, 5);
+
+-- Lesson 6: We are with an avarange of 39.494 t-shirt saler per month. What it is approximate value
+-- rounded to down this average?
+SELECT FLOOR(39.494);
+
+-- Lesson 7: We have registration fee of 85.234% in the photografy course for beginners. Which is the 
+-- approximate value to up this average?
+SELECT CEIL(85.234);
