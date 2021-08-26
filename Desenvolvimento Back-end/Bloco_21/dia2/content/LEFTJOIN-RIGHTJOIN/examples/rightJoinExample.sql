@@ -1,4 +1,6 @@
--- RIGHT JOIN: The business rule follow the pattern give the preference for the right side of the column
+-- RIGHT JOIN: The business rule follow the pattern give the preference for the right side of the column, return
+-- the corresponding values of the left table, if there are. Values that dont have correspondents
+-- are displayed as null;
 
 SELECT
     c.customer_id,
