@@ -54,7 +54,7 @@ ORDER BY Theater.name ASC;
 
 -- Exercise 6: Do two searches, one using a SUBQUERY and other using INNER JOIN, that returns the movie 
 -- titles and have rating bigger than 7.5;
-SELECT Movies.title
+SELECT title
 FROM Movies
 WHERE id IN (SELECT
 			movie_id
@@ -62,6 +62,47 @@ WHERE id IN (SELECT
 			BoxOffice
 		WHERE
 			rating > 7.5
+); -- 4.7
+
+SELECT Movies.title
+FROM Movies AS Movies
+INNER JOIN BoxOffice AS Box
+ON Movies.id = Box.movie_id
+WHERE Box.rating > 7.5; -- 2.67
+
+-- Exercise 7: Do two searches, one using SUBQUERY another using INNER JOIN, that returns the movie rating 
+-- releaseds after 2009;
+SELECT rating
+FROM BoxOffice
+WHERE movie_id IN (
+		SELECT id
+        FROM Movies
+        WHERE year > 2009);
+        
+-- Here a prefer try to use both
+SELECT Movies.title, Movies.year, Box.rating
+FROM Movies AS Movies
+INNER JOIN BoxOffice AS Box
+ON Movies.id = Box.movie_id
+WHERE id IN (SELECT
+				movie_id
+			FROM
+				BoxOffice
+			WHERE
+				year > 2009	
 );
 
+-- Exercise 8: Using the EXISTS, select the theater name and locations that have movies in poster;
+SELECT * FROM Theater AS Theater
+WHERE EXISTS (
+	SELECT * FROM Movies
+    WHERE Theater.id = Movies.theater_id
+);
+
+-- Exercise 9: Using the EXISTS, select the theater name and location that dont have movie in poster;
+SELECT * FROM Theater AS Theater
+WHERE NOT EXISTS (
+	SELECT * FROM Movies
+    WHERE Theater.id = Movies.theater_id
+);
 
