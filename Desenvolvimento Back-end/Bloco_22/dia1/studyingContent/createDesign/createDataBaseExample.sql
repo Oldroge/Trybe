@@ -12,5 +12,6 @@ IF NOT EXISTS data_base_name;
 -- List all exists databases;
 SHOW DATABASES;
 
+-- Define o banco de dados ativo para uso no momento.
 -- Define the actives database to use in the moment;
 USE nome_do_banco_de_dados;
