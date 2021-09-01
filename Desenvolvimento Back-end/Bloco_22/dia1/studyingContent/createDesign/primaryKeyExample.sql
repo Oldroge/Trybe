@@ -10,3 +10,9 @@
         populacao INTEGER,
         CONSTRAINT PRIMARY KEY(cidade)
     );
+    
+    -- Attempt to insert new values in the table;
+        INSERT INTO cidades(cidade, estado, populacao)
+    VALUES('Rio Claro','SP',185421),
+          ('Rio Claro','RJ',17216);
+	-- Happen an error cause the PK is only City and the PK cant repeat;
