@@ -1,0 +1,49 @@
+// DATABASES
+use nomeDoBanco
+// The 'use' statement check if db exist 
+db.nomeDaColecao.insertOne( { x: 1 })
+// Case the db dont exist the insertOne create as database 'nomeDoBanco' as the collection
+//'nomeDaColecao'. If both exists, the insertOne() statement only map the doc to be insert
+// inside of it, and finally, execute the operation.
+
+// COLLECTIONS
+// The collections are equivalents a tables in the relational databases;
+// Creating a collection:
+// As seen previously, if a collections dont exists, the mongoDB creates it in the first
+// insert;
+
+db.nomeDaColecao1.insertOne({ x: 1 })
+db.nomeDaColecao2.createIndex({ y: 1 })
+
+// As much insertOne as createIndex create a new collection (case exists);
+
+// EXPLICIT CREATION:
+db.createCollection( "nomeDaColecao", { collation: { locale: "pt" } } )
+
+db.createCollection( "outraColecao", { collation: { locale: "pt" } } )
+
+// DOCUMENTS:
+// Document are equivalents the lines in relational tables. Furthermore, each atribute(field)
+// is equivalent a column in relational tables. The difference is the docs can have structures
+// more richs, differents between documents and store more informations than you get in a 
+// simple line in relational table.
+
+{
+    "_id": 1,
+    "nome": "Jose",
+    "endereco": {
+        "logradouro": "Rua 1",
+        "regiao": "Zona Norte",
+        "cidade": "São Paulo",
+        "uf": "SP"
+    }
+},
+{
+    "_id": 2,
+    "nome": "Maria",
+    "endereco": {
+        "logradouro": "Rua 2",
+        "cidade": "Belo Horizonte",
+        "uf": "MG"
+    }
+}
