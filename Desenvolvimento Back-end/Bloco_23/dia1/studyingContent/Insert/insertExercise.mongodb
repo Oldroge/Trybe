@@ -1,0 +1,14 @@
+use objects;
+
+db.item.insertOne({
+  "productName": "Caixa",
+  "price": 20
+});
+
+db.item.insertOne({
+  "_id": 1,
+  "productName": "Caixa 2",
+  "price": 20
+});
+
+db.item.find();
