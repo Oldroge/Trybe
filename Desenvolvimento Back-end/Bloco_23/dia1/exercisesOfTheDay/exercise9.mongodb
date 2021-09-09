@@ -1,0 +1,26 @@
+// Display the attributes title, isbn and pageCount from 3 first books 
+use books;
+db.books.find({}, { "title": 1, "isbn": 1, "pageCount": 1 }).limit(3);
+
+// ANSWER
+[
+  {
+    _id: 3,
+    title: 'Specification by Example',
+    isbn: '1617290084',
+    pageCount: 0
+  },
+  {
+    _id: 1,
+    title: 'Unlocking Android',
+    isbn: '1933988673',
+    pageCount: 416
+  },
+  {
+    _id: 4,
+    title: 'Flex 3 in Action',
+    isbn: '1933988746',
+    pageCount: 576
+  }
+]
+
