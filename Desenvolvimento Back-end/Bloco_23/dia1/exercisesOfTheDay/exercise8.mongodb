@@ -1,0 +1,6 @@
+// Count how many books exists with the status="PUBLISH"
+use books;
+db.books.find({ "status": "PUBLISH" }).count();
+
+// ANSWER
+363
