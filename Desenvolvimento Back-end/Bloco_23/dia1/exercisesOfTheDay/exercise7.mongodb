@@ -1,0 +1,6 @@
+// Return the documents quantity from colection books;
+use books;
+db.books.find().count();
+
+// ANSWER;
+431
