@@ -1,0 +1,44 @@
+// Inserting a movie to test find() method
+use film;
+db.movies.insertOne(
+    {
+        "title" : "Forrest Gump",
+        "category" : [ "drama", "romance" ],
+        "imdb_rating" : 8.8,
+        "filming_locations" : [
+            { "city" : "Savannah", "state" : "GA", "country" : "USA" },
+            { "city" : "Monument Valley", "state" : "UT", "country" : "USA" },
+            { "city" : "Los Anegeles", "state" : "CA", "country" : "USA" }
+        ],
+        "box_office" : {
+            "gross" : 557, "opening_weekend" : 24, "budget" : 55
+        }
+    }
+);
+
+// The above operation exercutes a command that store datas about some film. Above specify 
+// the projection paramether only the title and imdb_rating;
+db.movies.findOne(
+    { "title" : "Forrest Gump" },
+    { "title" : 1, "imdb_rating" : 1 }
+);
+
+// Expected return the code below
+{
+    "_id" : ObjectId("5515942d31117f52a5122353"),
+    "title" : "Forrest Gump",
+    "imdb_rating" : 8.8
+}
+
+// It happens because the attribute _id return automatically without needs to call it.
+// If want returns without id, need to specify;
+db.movies.findOne(
+    { "title" : "Forrest Gump" },
+    { "title" : 1, "imdb_rating" : 1, "_id": 0 }
+);
+
+// And now expect that returns like below:
+{
+    "title" : "Forrest Gump",
+    "imdb_rating" : 8.8
+}
