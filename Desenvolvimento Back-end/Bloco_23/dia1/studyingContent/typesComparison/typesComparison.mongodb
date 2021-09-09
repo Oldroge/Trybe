@@ -10,3 +10,6 @@ db.fruits.find( { qty: { $gt: 4 } } );
 // returns:
 { "_id": "apples", "qty": 5 }
 { "_id": "bananas", "qty": 7 }
+
+// The _id oranges dont returns cause it is object type;
+// The _id avocados dont return caus it is string type;
