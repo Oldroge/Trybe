@@ -1,0 +1,6 @@
+// Return the document with _id equals 8, but only display the atributtes: _id and name;
+use people;
+db.bios.findOne({ "_id": 8 }, { "_id": 1, "name": 1 });
+
+// ANSWER
+{ _id: 8, name: { first: 'Yukihiro', aka: 'Matz', last: 'Matsumoto' } };
