@@ -275,3 +275,39 @@ db.bios.insertMany([
 ] )
 
 // playground with find()
+
+// The find method when using without parameters returs all colection documents together
+// with your fields.
+db.bios.find()
+// It is equivalent a SELECT * FROM bios of the MySQL.
+
+// Query by equality:
+// The operation bellow returns the collection document bios that atribute _id is equal 5;
+db.bios.find( { _id: 5 } )
+// this operation is equivalent a SELECT * FROM bios WHERE _id = 5;
+
+// The operation bellow returns the collection document bios that name.last is equal Hopper;
+db.bios.find( { "name.last": "Hopper" } )
+
+// The operation bellow, use only the second parameter, that returns a especific data from
+// database
+db.bios.find({}, { name: 1 })
+// It is equivalent a SELECT name FROM bios;
+
+// Limiting the returned documents numbers;
+// Syntax example:
+db.collection.find(<query>).limit(<número>)
+// The operation bellow, limits the documents for 5:
+db.bios.find().limit(5)
+// The code above is equivalent a SELECT * FROM bios LIMIT 5;
+
+// With the pretty we see the methods in the terminal legible;
+db.bios.find().limit(5).pretty()
+
+// Jumping documents;
+// With the code bellow, will skilp the two first documents and return the cursor 
+// from then on
+db.bios.find().skip(2)
+// And can join the 2 methods (limit and skip);
+db.bios.find().limit(10).skip(5)
+// The code above is equivalent SELECT * FROM bios LIMIT 10 OFFSET 5 in MySQL
