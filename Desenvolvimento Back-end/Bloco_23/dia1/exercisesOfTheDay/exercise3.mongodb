@@ -1,0 +1,10 @@
+// Return only the atributtes name and birth from document with the _id equals 8;
+use people
+db.bios.findOne({"_id": 8}, {"name": 1, "birth": 1});
+
+// ANSWER
+{
+  _id: 8,
+  name: { first: 'Yukihiro', aka: 'Matz', last: 'Matsumoto' },
+  birth: ISODate("1965-04-14T04:00:00.000Z")
+};
