@@ -1,0 +1,6 @@
+// Select and make the restaurants counting being in the district Queens, Staten Island and 
+// Bronx. (Using the borough atribute);
+use business;
+db.restaurants.find({ borough: { $in: ["Quees", "Staten Island", "Bronx"] } }).count();
+
+//ANSWER: 10

@@ -1,0 +1,5 @@
+// Select and make the restaurants counting that have rating less than 4;
+use business;
+db.restaurants.find({ rating: { $lt: 4 } }).count();
+
+// ANSWER: 13

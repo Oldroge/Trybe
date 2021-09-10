@@ -1,0 +1,42 @@
+//Syntax:
+// The operators follow a default syntax that is compose by a subdocument, as the follow example:
+{ <campo>: { <operador>: <valor> } }
+
+// In addition, the operators is indetify by prefix $
+
+// ===============> $lt operator: <==============
+// The $lt operator means less than, it works like a > operator in JavaScript;
+db.inventory.find({ qty: { $lt: 20 } })
+// This query returns all documents in inventory that quantity is less than 20;
+
+//===============> $lte operator: <==============
+// The $lte operator means less than or equal, it works like a <= operator in JavaScript;
+db.inventory.find({ qty: { $lte: 20 } })
+// This query returns all documents in inventory that quantity is less or equal 20;
+
+//===============> $gt operator: <==============
+// The $gt operator means greater than, it works like a > operator in JavaScript;
+db.inventory.find({ qty: { $gt: 20 } })
+// This query returns all documents in inventory that quantity is greater than 20;
+
+//===============> $gte operator: <==============
+// The $gte operator means greater than or equal, it works like a >= operator in JavaScript;
+db.inventory.find({ qty: { $gte: 20 } })
+// This query returns all documents in inventory that quantity is greater than or equal 20;
+
+//===============> $eq operator: <==============
+// The $eq operator means equal, it works like a === operator in JavaScript;
+db.inventory.find({ qty: { $eq: 20 } })
+// This query returns all documents in inventory that quantity is equal 20;
+// The above operation is equivalent the follow operation:
+db.inventory.find({ qty: 20 })
+
+//===============> $ne operator: <==============
+// The $ne operator means not equal, it works like a !== operator in JavaScript;
+db.inventory.find({ qty: { $ne: 20 } })
+// This query returns all documents in inventory that quantity not equal 20;
+
+//===============> $nin operator: <==============
+// The $nin operator means not in, in this case search a condition that not are inside it, example:
+db.inventory.find( { qty: { $nin: [ 5, 15 ] } } )
+// This query returns all documents in inventory that quantity not between 5 and 15;
