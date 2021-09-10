@@ -1,0 +1,4 @@
+// Select and make the restaurants counting that havent cooking as American type.
+// (Using the cuisine atribute);
+use business;
+db.restaurants.find({ "cuisine": { $ne: "American" } }).count();
