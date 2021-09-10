@@ -1,0 +1,50 @@
+// As comparison operators, the logical operators can also be used in the same methods to read 
+// and update the mongoDB documents;
+
+// =================> $not operator: <=================
+// Syntax:
+{ $or: [{ <expression1> }, { <expression2> }, ... , { <expressionN> }] }
+// Consider the follow example:
+db.inventory.find({ $or: [{ qty: { $lt: 20 } }, { price: 10 }] })
+// This consult select all documents in the inventory collection that atributte value quatity
+// is less than 20 or value the atributte price is equal 10;
+
+// =================> $nor operator: <=================
+// Syntax:
+{ $nor: [ { <expressão1> }, { <expressão2> }, ...  { <expressãoN> } ] }
+// Consider the follow example:
+db.inventory.find({ $nor: [{ price: 1.99 }, { sale: true }] })
+// This query returns the opposite than before, it works like 'not or', in other words, 
+// returns all documents at least 1 among the expression is false, as property as much value;
+
+// =================> $and operator: <=================
+// Syntax:
+{ $and: [{ <expressão1> }, { <expressão2> } , ... , { <expressãoN> }] }
+// Consider the follow example:
+db.inventory.find({
+and: [
+        { price: { $ne: 1.99 } },
+        { price: { $exists: true } }
+    ]
+})
+// This query select all doccuments in the inventory collection that values atributte price 
+// is differente than 1.99 and the atributte price exists;
+
+// =================> Multiple expressions: <=================
+// Consider the follow example:
+db.inventory.find({
+and: [
+        { price: { $gt: 0.99, $lt: 1.99 } },
+        {
+or: [
+                { sale : true },
+                { qty : { $lt : 20 } }
+            ]
+        }
+    ]
+});
+// This query select all documents in the inventory collection that values in the price field
+// is bigger than 0.99 and less than 1.99, AND the atributte value sale is equal true, OR the
+// atributte value qty is less than 20. That is, this expression is equivalent to (price > 0.99
+// AND price < 1.99) (where the AND is explicit in the comma here { $gt: 0.99, $lt: 1.99 })
+// AND (sale = true OR qty < 20);
