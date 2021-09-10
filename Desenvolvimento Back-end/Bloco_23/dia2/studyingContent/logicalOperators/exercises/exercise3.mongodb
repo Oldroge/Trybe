@@ -1,0 +1,7 @@
+// Select and count restaurants located in the Queens,
+//Staten Island and Broklyn neighborhoods and rating greater than 4;
+use business;
+db.restaurants.find({ $and: [
+  { borough: { $in: ["Queens", "Staten Island", "Broklyn"] } },
+  { rating: { $gt: 4 } }
+] });
