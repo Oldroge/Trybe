@@ -1,0 +1,5 @@
+// Select and make the restaurants counting that the rating be less or equal 6, or restaurants
+// located in district Brooklyn;
+db business;
+db.restaurants.find({ $or: [{ rating: { $lte: 6 } }, { borough: "Brooklyn" }] }).count();
+// ANSWER: 38
