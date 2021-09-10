@@ -2,3 +2,5 @@
 // Bronx. (Using the borough atribute);
 use business;
 db.restaurants.find({ borough: { $in: ["Quees", "Staten Island", "Bronx"] } }).count();
+
+//ANSWER: 10

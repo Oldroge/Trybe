@@ -1,0 +1,6 @@
+// Select and make the restaurants counting that have rating greater than or equal 8
+// (using the rating atribute)
+use business;
+db.restaurants.find({ rating: { $gte: 8 } }).count();
+
+// ANSWER: 18

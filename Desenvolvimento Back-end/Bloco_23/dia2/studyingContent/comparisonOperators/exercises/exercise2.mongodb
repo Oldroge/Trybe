@@ -2,3 +2,5 @@
 // (Using the cuisine atribute);
 use business;
 db.restaurants.find({ "cuisine": { $ne: "American" } }).count();
+
+// ANSWER: 40
