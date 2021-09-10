@@ -1,0 +1,8 @@
+// Select and make the restaurants counting that havent rating less or equal 5, this query
+// also should return restaurants that havent the field rating;
+use business;
+db.restaurants.find({ $and: [
+  { rating: { $lte: 5 } }
+] }, { rating: 0 }).count();
+
+// ANSWER: 22
