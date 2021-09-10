@@ -40,5 +40,3 @@ db.inventory.find({ qty: { $ne: 20 } })
 // The $nin operator means not in, in this case search a condition that not are inside it, example:
 db.inventory.find( { qty: { $nin: [ 5, 15 ] } } )
 // This query returns all documents in inventory that quantity not between 5 and 15;
-
-//===============> $nin operator: <==============
