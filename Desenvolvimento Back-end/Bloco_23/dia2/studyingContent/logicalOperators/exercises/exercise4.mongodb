@@ -1,0 +1,9 @@
+// Select and count the restaurants where neither the rating field is equal
+// to 1 nor the culinary field is of the American type.
+use business;
+db.restaurants.find({ $and: [
+  { rating: { $ne: 1 } },
+  { cuisine: { $ne: "American" } }
+] }).count();
+
+// ANSWER: 39
