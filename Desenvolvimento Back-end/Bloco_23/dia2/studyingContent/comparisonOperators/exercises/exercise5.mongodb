@@ -1,0 +1,6 @@
+// Select and make the restaurants counting that havent the rating 5, 6 and 7;
+
+use business;
+db.restaurants.find({ rating: { $nin: [5, 6, 7] } }).count();
+
+// ANSWER: 55;
