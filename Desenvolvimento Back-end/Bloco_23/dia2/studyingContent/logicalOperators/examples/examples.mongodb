@@ -22,7 +22,7 @@ db.inventory.find({ $nor: [{ price: 1.99 }, { sale: true }] })
 { $and: [{ <expressão1> }, { <expressão2> } , ... , { <expressãoN> }] }
 // Consider the follow example:
 db.inventory.find({
-and: [
+$and: [
         { price: { $ne: 1.99 } },
         { price: { $exists: true } }
     ]

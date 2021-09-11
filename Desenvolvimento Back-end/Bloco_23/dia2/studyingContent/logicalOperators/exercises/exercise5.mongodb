@@ -1,0 +1,10 @@
+// Select and count the restaurants where rating be bigger than 6 and less than 10. And is
+// located in district Brooklyn OR havent type cuisine Delicatessen;
+
+use business;
+db.restaurants.find({ $and: [
+  { rating: { $gt: 6, $lt: 10 } },
+  { $or: [{ borough: "Brooklyn" }, { cuisine: "Delicatessen" } ] }
+] }).count();
+
+// ANSWER: 10
