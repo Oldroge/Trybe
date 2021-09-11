@@ -1,0 +1,4 @@
+// Order alphabetically the restaurants by name (atribute name);
+
+use business;
+db.restaurants.find().sort({ "name": 1 });
