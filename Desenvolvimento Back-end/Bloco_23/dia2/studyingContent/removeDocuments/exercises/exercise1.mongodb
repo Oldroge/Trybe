@@ -1,0 +1,6 @@
+// Remove the first restaurant that have type culinary Ice Cream, Gelato, Yogurt, Ices;
+use business;
+db.restaurants.deleteOne({ cuisine: "Ice Cream, Gelato, Yogurt, Ices" });
+
+// ANSWER
+{ acknowledged: true, deletedCount: 1 }
