@@ -1,0 +1,17 @@
+// Syntax:
+
+{ campo: { $exists: <boolean> } }
+
+// When <boolean> true, the exists operator return all documents that contains the atributte,
+// including the atributte that is equals null. Whether <boolean> is false, return all documents
+// that dont contains the atributte;
+
+// Example;
+db.inventory.find({ qty: { $exists: true } })
+
+// This query returns all documents where atributte qty exists, in other words, is true;
+
+// We can combine the operators like bellow:
+db.inventory.find({ qty: { $exists: true, $nin: [ 5, 15 ] } })
+
+// This query will return all documents where qty exists and dont be between 5 and 15;
