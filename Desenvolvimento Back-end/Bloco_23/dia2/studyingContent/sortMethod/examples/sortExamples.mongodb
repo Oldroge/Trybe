@@ -1,0 +1,59 @@
+// Syntax:
+db.colecao.find().sort({ "field": "1 ou -1"})
+
+// The sort method is used to order documents by some atributte. It can order as string as much
+// number types. Using the value 1 as positive number, the sort return in alphatic order if 
+// string and crescent form if numbers. Using the value -1 as negative number, the sort return
+// the inverse;
+// Follow the example bellow:
+db.example.find({}, { value, name }).sort({ value: -1 }, { name: 1 })
+// In this query will return value: -1 as decreasing form and name against alphatical;
+
+// The sort method only can be used if have some search result before:
+db.colecao.find().sort({ nomeDoAtributo: 1 }) // right
+db.colecao.sort({ nomeDoAtributo: 1 }) // wrong
+
+// A pratical example:
+db.example.insertMany([
+    { "name": "Mandioquinha Frita", "price": 14 },
+    { "name": "Litrão", "price": 8 },
+    { "name": "Torresmo", "price": 16 }
+]);
+
+db.example.find().sort({ "price": 1 }).pretty();
+
+// Expected result:
+{
+        "_id" : ObjectId("5f7dd0582e2738debae74d6c"),
+        "name" : "Litrão",
+        "price" : 8
+}
+{
+        "_id" : ObjectId("5f7dd0582e2738debae74d6b"),
+        "name" : "Mandioquinha Frita",
+        "price" : 14
+}
+{
+        "_id" : ObjectId("5f7dd0582e2738debae74d6d"),
+        "name" : "Torresmo",
+        "price" : 16
+}
+
+db.example.find().sort({ "price": -1 }, { "name" : 1 }).pretty();
+
+// Expected results:
+{
+        "_id" : ObjectId("5f7dd0582e2738debae74d6d"),
+        "name" : "Torresmo",
+        "price" : 16
+}
+{
+        "_id" : ObjectId("5f7dd0582e2738debae74d6b"),
+        "name" : "Mandioquinha Frita",
+        "price" : 14
+}
+{
+        "_id" : ObjectId("5f7dd0582e2738debae74d6c"),
+        "name" : "Litrão",
+        "price" : 8
+}
