@@ -1,0 +1,20 @@
+// To remove documents we can use two methods: deleteOne() and deleteMany(). Both
+// methods accept one document as parameter.
+
+// deleteOne()
+// This method remove only one documents, even that many other documents also fit the selection
+// criteria. Case none value were passed as parameter, the operation will remove the first
+// document in collection.
+// Follow the example bellow:
+db.inventory.deleteOne({ status: "D" });
+// This query remove the first document from the inventory collection where the status atributte
+// equals D
+
+// deleteMany()
+// This method remove all documents that satisfy the selection criteria.
+// Follow the example bellow:
+db.inventory.deleteMany({ status : "A" })
+// This query delet all documents that have the status equal A;
+
+// To remove all documents in the collection, just dont set neether parameter;
+db.inventory.deleteMany({})
