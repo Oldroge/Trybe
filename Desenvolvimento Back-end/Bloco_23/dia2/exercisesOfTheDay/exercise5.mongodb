@@ -1,0 +1,3 @@
+// Select one superhero with 2.00m or more;
+use class;
+db.superheroes.findOne({ "aspects.height": { $gte: 200 } });
