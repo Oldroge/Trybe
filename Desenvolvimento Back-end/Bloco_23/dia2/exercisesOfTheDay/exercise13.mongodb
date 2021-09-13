@@ -1,0 +1,6 @@
+// Select all the superheroes that dont be humans neither be bigger than 1.80cm;
+use class;
+db.superheroes.find({
+  race: { $not: { $eq: "humans" } },
+  "aspects.height": { $gt: 180 }
+}) ;
