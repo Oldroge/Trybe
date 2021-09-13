@@ -1,0 +1,6 @@
+// Remove all restaurants that have type culinary American;
+use business;
+db.restaurants.deleteMany({ cuisine: "American" });
+
+// ANSWER
+{ acknowledged: true, deletedCount: 20 }

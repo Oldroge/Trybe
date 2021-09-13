@@ -1,0 +1,19 @@
+// Select all superheroes that weight between 80kg and 100kg, be humans or mutants  and dont
+// be published by DC Comics;
+use class;
+db.superheroes.find(
+  {
+  $and:
+  [
+    {
+        "aspects.weight": { $gte: 80, $lte: 100 },
+    },
+    {
+        $or: [{ race: "Human" }, { race: "Mutant" }]
+    },
+    {
+        publisher: { $ne: "DC Comics" }
+    }
+  ]
+}
+);

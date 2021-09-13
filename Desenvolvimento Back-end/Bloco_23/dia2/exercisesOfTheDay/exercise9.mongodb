@@ -1,0 +1,3 @@
+// Using the $in operator, select all superheroes with black hair or bald ("No Hair");
+use class;
+db.superheroes.find({ "aspects.hairColor": { $in: ["black", "No Hair"] } });

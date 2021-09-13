@@ -1,0 +1,4 @@
+// Select all superheroes with less 1.80m of height. remeber these information is in cm;
+
+use class;
+db.superheroes.find({ "aspects.height": { $lt: 180 } });

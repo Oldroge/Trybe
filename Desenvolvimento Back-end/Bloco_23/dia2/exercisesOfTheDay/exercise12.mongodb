@@ -1,0 +1,3 @@
+// Using the $not operator, return the superheroes total that havent more than 1.80m of height;
+use class;
+db.superheroes.count({ "aspects.height": { $not: { $gt: 180 } } });

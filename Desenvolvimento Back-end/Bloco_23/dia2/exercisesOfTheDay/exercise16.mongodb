@@ -1,0 +1,3 @@
+// Return documents total that havent the race field;
+use class;
+db.superheroes.count({ race: { $exists: false } });
