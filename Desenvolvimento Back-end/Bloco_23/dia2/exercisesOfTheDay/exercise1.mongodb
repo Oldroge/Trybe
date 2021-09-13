@@ -1,0 +1,4 @@
+// Inspect an document to get acquainted with the structure. Understand the attributes and the
+// existents levels;
+use class;
+db.superheroes.find();
