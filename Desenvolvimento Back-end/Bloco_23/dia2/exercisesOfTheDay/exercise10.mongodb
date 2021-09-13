@@ -1,0 +1,3 @@
+// Return the superheroes total with the black hair or bald ("No Hair");
+use class;
+db.superheroes.count({ "aspects.hairColor": { $in: ["black", "No Hair"] } });
