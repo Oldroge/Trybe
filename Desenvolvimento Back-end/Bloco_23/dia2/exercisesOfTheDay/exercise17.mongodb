@@ -1,0 +1,3 @@
+// Return the documents total that have the hairColor field;
+use class;
+db.superheroes.count({ "aspects.hairColor": { $exists: true } });
