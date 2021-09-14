@@ -1,0 +1,47 @@
+// min operator change the actual /value by the value passed IF the value passed were less than 
+// actual value;
+// max operator change the actual value by the value passed IF the value passed were bigger than
+// actual value;
+
+// Both can compare values of differents types;
+
+// example:
+// In scenario that have a collection with three documents, each document have an atributte _id
+// and a field atributte that is a integer number;
+db.collection.find();
+
+//The result is:
+[
+  { _id: 1, field: 25 },
+  { _id: 2, field: 50 },
+  { _id: 3, field: 100 }
+]
+
+// Next, lets update using the max operator.
+db.collection.updateMany({}, { $max: { campo: 75 } });
+// Updating all attribute values "campo"
+// to 75 case be minors
+
+db.collection.find();
+
+// In this case, besides defines only the maximum limit to 75, it will change all field 'campo' 
+// to 75, follow the results above:
+[
+  { _id: 1, campo: 75 }, // previous value: 25
+  { _id: 2, campo: 75 }, // previus value: 50
+  { _id: 3, campo: 100 }, // dont find in the scope
+]
+
+// With the min operator is the same thing, but unlike:
+db.collection.updateMany({}, { $min: { campo: 42 } });
+// Updating all atributte values "campo"
+// to 42 case be bigger
+
+db.collection.find();
+
+// Result:
+[
+  { _id: 1, campo: 42 }, // previous value: 75
+  { _id: 2, campo: 42 }, // previous value: 75
+  { _id: 3, campo: 42 }, // previous value: 100
+]
