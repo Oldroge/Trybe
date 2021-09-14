@@ -38,3 +38,16 @@ db.products.update(
 );
 // The query above change field 'make' inside the subdocument 'details' that field _id be equals 
 // 100;
+
+// Example 3: Change values in arrays
+db.products.update(
+  { _id: 100 },
+  { $set: {
+      "tags.1": "rain gear",
+      "ratings.0.rating": 2
+    }
+  }
+);
+// Arrays are very important in the mongoDBs data modeling. The query above, will set the tags
+// field in the array index 1, and rating field in the first element (index 0) of the array
+// ratings;
