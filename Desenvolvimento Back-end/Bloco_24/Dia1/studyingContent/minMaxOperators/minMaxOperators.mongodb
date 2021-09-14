@@ -62,3 +62,11 @@ db.scores.update({ _id: 1 }, { $min: { lowScore: 150 } });
 // Soon if execute the follow operation it wont update:
 db.scores.update({ _id: 1 }, { $min: { lowScore: 250 } })
 
+// Currently the highScore have the value 800, using the follow update, it will change to 950:
+db.scores.update({ _id: 1 }, { $max: { highScore: 950 } });
+// It happens cause 950 is bigger than 800. Now the document is like this:
+{ _id: 1, highScore: 950, lowScore: 150 }
+
+// As we see in the min operator example, using the query bellow wont update cause the value 870
+// is minor than 950
+db.scores.update({ _id: 1 }, { $max: { highScore: 870 } });
