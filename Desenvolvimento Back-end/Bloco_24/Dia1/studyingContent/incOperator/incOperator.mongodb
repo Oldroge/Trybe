@@ -1,0 +1,33 @@
+// With the inc operator we can increment or decrement values in especific fields without need
+// make queries to return the actual values in the fields;
+// Follow the example:
+db.increment.insertOne(
+  {
+    _id: 1,
+    sku: "abc123",
+    quantity: 10,
+    metrics: {
+      orders: 2,
+      ratings: 3.5
+    }
+  }
+)
+
+db.increment.update(
+  { sku: "abc123" },
+  { $inc: { quantity: -2, "metrics.orders": 1 } }
+);
+
+// In the example above, the update is updating with inc operator quantity to decrement 
+// quantity by 2 and 2, in other words, -2. And increment metrics.orders in 1.
+
+// The document changed will be like this:
+{
+  "_id": 1,
+  "sku": "abc123",
+  "quantity": 8,
+  "metrics": {
+    "orders": 3,
+    "ratings": 3.5
+  }
+}

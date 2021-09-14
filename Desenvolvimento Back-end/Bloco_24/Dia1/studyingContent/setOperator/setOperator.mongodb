@@ -50,4 +50,4 @@ db.products.update(
 );
 // Arrays are very important in the mongoDBs data modeling. The query above, will set the tags
 // field in the array index 1, and rating field in the first element (index 0) of the array
-// ratings;
+//ratings;
