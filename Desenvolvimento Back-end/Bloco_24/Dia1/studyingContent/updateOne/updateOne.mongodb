@@ -1,0 +1,15 @@
+// The updateOne() as the name says, update an only document that matches the filter criterion
+// Follow the example bellow:
+db.inventory.updateOne(
+  { item: "paper" },
+  { $set: { "size.uom": "cm", status: "P" } }
+);
+
+// Were passed 2 parameters, the first is the filter, this is a simple equality filter, but
+// can use others filters. The second one is the update. The $set operator is changing "size.uom"
+// to "cm" and status to "P";
+
+// WARNING
+// If the first parameter were passed empty, in other words,
+// db.collection.updateOne({}, { update }), it will update the first collection that matches
+// the filter criterion;
