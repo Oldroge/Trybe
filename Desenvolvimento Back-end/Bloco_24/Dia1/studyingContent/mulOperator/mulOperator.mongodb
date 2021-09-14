@@ -31,3 +31,17 @@ db.products.update(
 // As result we have a price field created in the document with value equal 0 by the same numeric
 // type. In this case, the type is NumberLong:
 { "_id": 2, "item": "Unknown", "price": NumberLong(0) }
+
+// Multiply values with diferent types:
+db.products.insertOne(
+  { _id: 3,  item: "XYZ", price: NumberLong("10") }
+);
+
+// The query bellow done a update multiplying the field value price, type string "10" by 5;
+db.products.update(
+  { _id: 3 },
+  { $mul: { price: NumberInt(5) } }
+);
+
+// As result we have the follow:
+{ "_id": 3, "item": "XYZ", "price": NumberLong(50) }
