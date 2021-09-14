@@ -28,3 +28,13 @@ db.products.update(
 );
 // For the fields that matches with the field _id that be equals 100, the example above will
 // update the quantity, details and tags fields;
+
+//Example 2: Changing the fields in embedded documents;
+// To change fields inside a subdocument, you should use the dote notation concept seen during 
+// the find() operations;
+db.products.update(
+  { _id: 100 },
+  { $set: { "details.make": "zzz" } }
+);
+// The query above change field 'make' inside the subdocument 'details' that field _id be equals 
+// 100;
