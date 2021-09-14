@@ -14,3 +14,20 @@ db.products.update(
 
 // The result this operation bellow:
 { "_id": 1, "item": "ABC", "price": NumberDecimal("13.7375"), "qty": 50 }
+
+// Another example about how to use mul operator:
+// Consider the follow document in the collection products;
+db.products.insertOne(
+  { _id: 2, item: "Unknown" }
+);
+
+// The query bellow done other operation in the products documents in price field that dont 
+// exist;
+db.products.update(
+  { _id: 2 },
+  { $mul: { price: NumberLong("100") } }
+);
+
+// As result we have a price field created in the document with value equal 0 by the same numeric
+// type. In this case, the type is NumberLong:
+{ "_id": 2, "item": "Unknown", "price": NumberLong(0) }
