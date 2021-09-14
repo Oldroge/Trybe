@@ -1,0 +1,17 @@
+// The updateMany() allow the many documents be changed, it only needs matches the filter criterion
+// Follow the example bellow:
+db.inventory.updateMany(
+  { "qty": { $lt: 50 } },
+  { $set: { "size.uom": "in", status: "P" } }
+);
+
+// The example above allow that every document with qty propertie be less than 50, will set
+// 'in' value in "size.uom" field and 'P' in Status field;
+
+// In other words, if have 10 documents that qty propertie be less than 50, all in it will
+// be changed;
+
+// WARNING
+// If execute the query without the first parameter, that is, 
+// db.collection.updateMany({}, { update }), it will update all documents that matches with query;
+
