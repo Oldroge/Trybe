@@ -45,3 +45,20 @@ db.collection.find();
   { _id: 2, campo: 42 }, // previous value: 75
   { _id: 3, campo: 42 }, // previous value: 100
 ]
+
+// Pratical example:
+use conteudo_trybe;
+db.scores.insertOne(
+  { _id: 1, highScore: 800, lowScore: 200 }
+);
+
+// example 1: Comparing numbers
+// In the previous example, the value from lowScore is 200
+db.scores.update({ _id: 1 }, { $min: { lowScore: 150 } });
+// With the update above, it will compare which is the lowest, in this case, 150 is lower than
+// 200, so the results:
+{ _id: 1, highScore: 800, lowScore: 150 }
+
+// Soon if execute the follow operation it wont update:
+db.scores.update({ _id: 1 }, { $min: { lowScore: 250 } })
+
