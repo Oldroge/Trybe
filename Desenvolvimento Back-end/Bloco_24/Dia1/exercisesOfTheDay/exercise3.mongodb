@@ -1,0 +1,11 @@
+// Change budget to 15 and imdbRating to 5.5 in the Home Alone Movie;
+use movies;
+db.allMovies.update(
+  { title: "Home Alone" },
+  {
+    $set: {
+      budget: 15,
+      imdbRating: 5.5
+    }
+  }
+);

@@ -1,0 +1,10 @@
+// Increase by 5 the budget Home Alone movie;
+use movies;
+db.allMovies.updateOne(
+  { title: "Home Alone" },
+  {
+    $inc: {
+      budget: 5
+    },
+  },
+);
