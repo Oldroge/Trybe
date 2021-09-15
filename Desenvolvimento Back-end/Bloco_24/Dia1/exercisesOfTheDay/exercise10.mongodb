@@ -1,0 +1,11 @@
+// Using the $currentDate operator, create a field called lastUpdated with type timestamp
+// on the movie Home Alone;
+use movies;
+db.allMovies.updateOne(
+  { title: "Home Alone" },
+  {
+    $currentDate: {
+      lastUpdated: { $type: "timestamp" },
+    },
+  },
+);
