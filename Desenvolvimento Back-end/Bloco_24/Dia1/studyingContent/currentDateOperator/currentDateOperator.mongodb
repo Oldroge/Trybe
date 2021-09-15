@@ -1,0 +1,45 @@
+// The currentDate operator assign the value to the field using the type Date or timestamp.
+// If dont specify the type, by default mongoDB defines as Date.
+// Syntax:
+{ $currentDate: { <campo>: <typeSpecification>, ... } }
+
+//TypeSpecification can be:
+// - A bool value true to assign the date current value using the type Date
+// - Or a document that specify the date type. This document can be { $type: "timestamp" }
+// or { $type: "date" }. This operator is case sensitve and accept only lowercase: timestamp or
+// date.
+
+// See the operation of the operator $currentDate, considering the follow collection document
+// customers:
+use conteudo_trybe;
+db.customers.insertOne(
+  { _id: 1, status: "a", lastModified: ISODate("2013-10-02T01:11:18.965Z") }
+);
+
+// With the above operation is possible to change the lastModified field to current date and
+// create a field cancellation.date with current timestamp, using the $currentDate operator,
+// and change the field status to D and create the field cancellation.reason with the value 
+// "user request", using the operator $set;
+
+db.customers.updateOne(
+  { _id: 1 },
+  { $currentDate: {
+      lastModified: true,
+      "cancellation.date": { $type: "timestamp" }
+    }, $set: {
+      "cancellation.reason": "user request",
+      status: "D"
+    }
+  }
+);
+
+// As results the documents it looks like:
+{
+  "_id": 1,
+  "status": "D",
+  "lastModified": ISODate("2020-01-22T21:21:41.052Z"),
+  "cancellation": {
+    "date": Timestamp(1579728101, 1),
+    "reason": "user request"
+  }
+}
