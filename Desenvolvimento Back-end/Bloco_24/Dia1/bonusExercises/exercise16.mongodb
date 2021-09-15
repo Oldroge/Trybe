@@ -12,5 +12,10 @@ db.xmen.updateMany(
     $max: {
       power: 500,
     },
+    $currentDate: {
+      lastUpdate: {
+        $type: "timestamp",
+      },
+    },
   },
 );

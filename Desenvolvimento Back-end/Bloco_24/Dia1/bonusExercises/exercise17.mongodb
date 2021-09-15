@@ -8,4 +8,9 @@ db.xmen.updateMany(
       power: 300,
     },
   },
+    $currentDate: {
+      lastUpdate: {
+        $type: "timestamp",
+      },
+    },
 );
