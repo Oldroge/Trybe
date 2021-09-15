@@ -1,0 +1,10 @@
+// Rename the budget field to estimatedBudget from Batman movie;
+use movies;
+db.allMovies.updateOne(
+  { title: "Batman" },
+  {
+    $rename: {
+      budget: "estimatedBudget",
+    },
+  },
+);
