@@ -1,0 +1,21 @@
+// In only a query, add the areas field with ["Outside"] to all the Junior Staff that havent
+// the field areas defined;
+use class;
+db.xmen.updateMany(
+  {
+    occupation: "Junior Staff",
+    class: {
+      $exists: false
+      },
+  },
+  {
+    $set: {
+      areas: ["Outside"],
+    },
+    $currentDate: {
+      lastUpdate: {
+        $type: "timestamp",
+      },
+    },
+  },
+);
