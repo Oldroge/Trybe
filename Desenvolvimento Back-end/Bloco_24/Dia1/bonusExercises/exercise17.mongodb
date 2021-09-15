@@ -1,0 +1,16 @@
+// Make a query where the mutants class gama start to have your powers by 300 only if your powers
+// were bigger than 300;
+use class;
+db.xmen.updateMany(
+  { class: "gama" },
+  {
+    $min: {
+      power: 300,
+    },
+    $currentDate: {
+      lastUpdate: {
+        $type: "timestamp",
+      },
+    },
+  },
+);

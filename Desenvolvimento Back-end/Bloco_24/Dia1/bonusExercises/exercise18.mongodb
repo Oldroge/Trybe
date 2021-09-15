@@ -1,0 +1,20 @@
+// Decreasing in 100 the mutants power that havent the class propertie;
+use class;
+db.xmen.updateMany(
+  {
+    class: {
+      $exists: false,
+    },
+  },
+  {
+    $inc: {
+      power: -100,
+    },
+    $currentDate: {
+      lastUpdate: {
+        $type: "timestamp",
+      },
+    },
+  },
+);
+//

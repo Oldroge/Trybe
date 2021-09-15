@@ -1,6 +1,13 @@
 // remove the field class from documents that have this field with the value unknown;
  use class;
- db.xmen.deleteMany(
+ db.xmen.updateMany(
    { class: "unknown" },
-   { $unset: { class: "" } },
+   {
+     $unset: { class: "" },
+     $currentDate: {
+       lastUpdate: {
+         $type: "timestamp",
+       }
+     }
+     },
  );
