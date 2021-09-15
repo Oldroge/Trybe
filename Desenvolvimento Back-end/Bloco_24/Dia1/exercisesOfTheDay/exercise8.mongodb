@@ -1,0 +1,10 @@
+// Use the $min operator to change the budget to 5 by Home Alone movie;
+use movies;
+db.allMovies.updateOne(
+  { title: "Home Alone" },
+  {
+    $min: {
+      budget: 5,
+    },
+  },
+);
