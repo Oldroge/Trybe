@@ -1,0 +1,22 @@
+// Unset operator remove one or more fields;
+// Example:
+{
+  _id: 100,
+  productName: "Banana",
+  quantity: 100,
+  inStock: true
+}
+
+// The operation bellow remove the quantity field with the unset, on what, the productName value
+// be equals "Banana"
+db.fruits.updateMany(
+  { productName: "Banana" },
+  { $unset: { quantity: "" } }
+);
+
+// The results:
+{
+  _id: 100,
+  productName: "Banana",
+  inStock: true
+}
