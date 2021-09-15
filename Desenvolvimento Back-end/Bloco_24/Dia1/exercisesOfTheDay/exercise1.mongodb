@@ -1,0 +1,6 @@
+// Change the imdbRating to 7.7 on the Batman movie;
+use movies;
+db.allMovies.updateOne(
+  { title: "Batman" },
+  { $set: { imdbRating: 7.7 } }
+  );
