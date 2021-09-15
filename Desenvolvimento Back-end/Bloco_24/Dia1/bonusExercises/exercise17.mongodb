@@ -7,10 +7,10 @@ db.xmen.updateMany(
     $min: {
       power: 300,
     },
-  },
     $currentDate: {
       lastUpdate: {
         $type: "timestamp",
       },
     },
+  },
 );
