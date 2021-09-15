@@ -1,0 +1,11 @@
+// Using a unique operation, remove the fields budget and estimatedBudget in all documents;
+use movies;
+db.allMovies.updateMany(
+  {},
+  {
+    $unset: {
+      budget: "",
+      estimatedBudget: "",
+    },
+  },
+);

@@ -1,0 +1,14 @@
+// Use the $max operator to change the imdbRating to 8.6 by Godzilla movie. Furthermore, change
+// the category "adventure" for "thriller" by Godzilla film;
+use movies;
+db.allMovies.updateOne(
+  { title: "Godzilla" },
+  {
+    $max: {
+      imdbRating: 8.6,
+    },
+    $set: {
+      "category.1": "thriller",
+    },    
+  },
+);

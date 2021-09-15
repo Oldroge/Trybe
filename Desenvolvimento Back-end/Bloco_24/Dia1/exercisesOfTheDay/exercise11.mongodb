@@ -1,0 +1,11 @@
+// Using a unique operation, create a field called sequels and assign to it the value 0
+// in all documents;
+use movies;
+db.allMovies.updateMany(
+  {},
+  {
+    $set: {
+      sequels: 0
+    }
+  }
+);
