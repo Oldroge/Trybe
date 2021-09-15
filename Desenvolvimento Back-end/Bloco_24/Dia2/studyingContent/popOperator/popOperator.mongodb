@@ -1,0 +1,66 @@
+// The $pop operator remove the first and the last element of an array. Only needs to pass
+// the value -1 to remove the first one and 1 to remove the last one, follow the examples above:
+
+// Using this database:
+{
+  _id: 1,
+  items: [
+    {
+      "name" : "notepad",
+      "price" : 35.29,
+      "quantity" : 2,
+    },
+    {
+      "name": "envelopes",
+      "price": 19.95,
+      "quantity": 8,
+    },
+    {
+      "name": "pens",
+      "price": 56.12,
+      "quantity": 5,
+    },
+  ],
+}
+
+// Removing the first item of an array:
+// To remove the first item from array items:
+db.supplies.updateOne({ _id: 1 }, { $pop: { items: -1 } });
+
+// The document be changed, and the first element will be removed from array items:
+{
+  _id: 1,
+  items: [
+    {
+      "name": "envelopes",
+      "price": 19.95,
+      "quantity": 8,
+    },
+    {
+      "name": "pens",
+      "price": 56.12,
+      "quantity": 5,
+    },
+  ],
+}
+
+// Removing the last item of an array:
+// To remove the last element from array items, use the follow operation:
+db.supplies.updateOne({ _id: 1 }, { $pop: { items: 1 } });
+
+// Executing this operation, is removed the last array items element, and the document will be like this:
+{
+  _id: 1,
+  items: [
+    {
+      "name" : "notepad",
+      "price" : 35.29,
+      "quantity" : 2,
+    },
+    {
+      "name": "envelopes",
+      "price": 19.95,
+      "quantity": 8,
+    },
+  ],
+}
