@@ -1,0 +1,15 @@
+// Make a query that rename fields from 'name' to 'hero_name' and from 'true_name' to 'full_name';
+// add the field power with value 100, in all documents;
+use class;
+db.xmen.updateMany(
+  {},
+  {
+    $rename: {
+      name: "hero_name",
+      true_name: "full_name"
+    },
+    $set: {
+      power: 100,
+    },
+  },
+);
