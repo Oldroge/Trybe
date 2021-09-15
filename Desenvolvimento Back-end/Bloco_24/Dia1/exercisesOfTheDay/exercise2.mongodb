@@ -1,0 +1,9 @@
+// Change budget to 1 in the Godzilla movie;
+use movies;
+db.allMovies.updateOne(
+  { title: "Godzilla" },
+  { $set: { budget: 1 } }
+  );
+
+
+// As the Godzilla movie havent the budget field, it add a new one;
