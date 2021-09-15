@@ -1,0 +1,16 @@
+// To the movies batman or Home Alone, assign the value 17 to imdbRationg, case the value
+// imdbRating be minor than 17;
+use movies;
+db.allMovies.updateMany(
+  {
+    $or: [{
+      title: "batman",
+      title: "Home Alone",
+    }],
+  },
+  {
+    $max: {
+      imdbRating: 17,
+    }
+  }
+);

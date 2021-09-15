@@ -1,0 +1,6 @@
+// remove the field class from documents that have this field with the value unknown;
+ use class;
+ db.xmen.deleteMany(
+   { class: "unknown" },
+   { $unset: { class: "" } },
+ );
