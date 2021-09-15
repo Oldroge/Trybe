@@ -1,0 +1,10 @@
+// Increase in 2 o imdbRating by Batman movie;
+use movies;
+db.allMovies.updateOne(
+  { title: "Batman" },
+  {
+    $inc: {
+      imdbRating: 2,
+    },
+    },
+)
