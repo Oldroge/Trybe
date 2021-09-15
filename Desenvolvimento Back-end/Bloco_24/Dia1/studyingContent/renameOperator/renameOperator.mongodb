@@ -1,0 +1,18 @@
+// With the rename operator you can rename a determined atributte by one or more documents;
+// Example:
+use conteudo_trybe;
+db.fruits.insertOne(
+  { _id: 100, name: "Banana", quantity: 100, inStock: true }
+);
+
+// With the operator bellow, it will rename the name field to productName;
+db.fruits.updateOne(
+  { name: "Banana" },
+  { $rename: {
+      "name": "productName"
+    }
+  }
+);
+
+// Soon the results look like this:
+{ _id: 100, quantity: 100, inStock: true, productName: 'Banana' }
