@@ -1,0 +1,10 @@
+// Multiply by 4 the imdbRating from Batman film;
+use movies;
+db.allMovies.updateOne(
+  { title: "Batman" },
+  {
+    $mul: {
+      imdbRating: 4,
+    },
+  },
+);
