@@ -1,0 +1,10 @@
+// Remove the "action" category from film Batman;
+use movies;
+db.allMovies.updateOne(
+  { title: "Batman" },
+  {
+    $pop: {
+      category: -1,
+    },
+  },
+);
