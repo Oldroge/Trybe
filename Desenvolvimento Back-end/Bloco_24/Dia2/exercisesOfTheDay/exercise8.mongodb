@@ -1,0 +1,24 @@
+// Create an document array called cast for the movie Home Alone with the follows datas:
+use movies;
+db.allMovies.updateOne(
+  { title: "Home Alone" },
+  {
+    $push: {
+      cast: {
+        $each: [
+          {
+            "actor": "Macaulay Culkin",
+            "character": "Kevin"
+          },
+          {
+            "actor": "Joe Pesci",
+            "character": "Harry"
+          },
+          {
+            "actor": "Daniel Stern",
+          },
+        ],
+      },
+    },
+  },
+);
