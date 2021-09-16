@@ -1,0 +1,8 @@
+// Add the element "action" to array category by film Batman, ensuring that this value doesnt double;
+use movies;
+db.allMovies.updateOne(
+  { title: "Batman" },
+  {
+    $push: { category: "action" },
+  },
+);

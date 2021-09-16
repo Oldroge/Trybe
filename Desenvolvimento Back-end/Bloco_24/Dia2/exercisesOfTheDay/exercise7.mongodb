@@ -1,0 +1,15 @@
+// Add the "90's" category to the movies Batman and Home Alone;
+use movies;
+db.allMovies.updateMany(
+  {
+    $or: [
+      { title: "Batman" },
+      { title: "Home Alone" },
+    ],
+  },
+  {
+    $addToSet: {
+      category: "90's",
+    },
+  },
+);
