@@ -1,0 +1,8 @@
+// Remove the first element from array category by film Batman;
+use movies;
+db.allMovies.updateOne(
+  { title: "Batman" },
+  {
+    $pop: { category: -1 },
+  },
+);
