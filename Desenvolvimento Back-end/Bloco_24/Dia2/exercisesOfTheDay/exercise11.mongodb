@@ -1,0 +1,40 @@
+// Make three queries to the Batman movie:
+// Add the field Actor, that should be an array with value Christian Bale, to the cast array
+// in which the field character be equals Batman;
+
+// Add the actor field, that should be an array with the value Michael Caine, to the cast array
+// in which the field character be equals Alfred;
+
+// Add the field actor, that should be an array with the value Heath Ledger, to the cast array
+// in which the field character be equals Coringa;
+
+use movies;
+db.allMovies.updateOne(
+  {
+    title: "Batman",
+    "cast.character": "Batman"
+  },
+  {
+    $push: { "cast.$.actor": "Christian Bale" },
+  },
+);
+
+db.allMovies.updateOne(
+  {
+    title: "Batman",
+    "cast.character": "Alfred"
+  },
+  {
+    $push: { "cast.$.actor": "Michael Caine" },
+  },
+);
+
+db.allMovies.updateOne(
+  {
+    title: "Batman",
+    "cast.character": "Coringa",
+  },
+  {
+    $push: { "cast.$.actor": "Heath Ledger" }
+  }
+)
