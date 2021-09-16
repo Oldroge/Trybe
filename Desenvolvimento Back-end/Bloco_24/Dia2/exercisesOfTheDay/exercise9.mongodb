@@ -1,0 +1,12 @@
+// Add the field character with the value Marv in the cast array that the field actor be equal
+// Daniel Stern in the movie Home Alone;
+use movies;
+db.allMovies.updateOne(
+  { title: "Home Alone" },
+  {
+    $set: {
+      "cast.$[element].character": "Marv",
+    },
+  },
+  { arrayFilters: [ { "element.actor": "Daniel Stern" } ] },
+)
