@@ -1,0 +1,96 @@
+// How to get values inside an array of objects?
+// Follow the example bellow:
+db.recipes.insertMany([
+  {
+    title: "Panqueca Simples",
+    ingredients: [
+      { name: "Farinha", quantity: 2},
+      { name: "Oleo", quantity: 4 },
+      { name: "Leite", quantity: 1 },
+    ],
+  },
+  {
+    title: "Bolo de Cenoura",
+    ingredients: [
+      { name: "Farinha", quantity: 2},
+      { name: "Oleo", quantity: 1, unit: "xícara" },
+      { name: "Ovo", quantity: 3},
+      { name: "Cenoura", quantity: 3},
+      { name: "Fermento", quantity: 1},
+    ],
+  },
+]);
+
+// This code will insert 2 new documents inside a recipes collections with ingredients
+// that is an array of object;
+
+// Case we know the index we can use some code it look like this:
+db.recipes.updateOne( { title: "Panqueca Simples" }, { $set: { "ingredients.1.unit": "xícara" } } );
+// What if we need to get some specific value inside an array of object? 
+// What if we dont know which position want to change in the array? Or even, how do we 
+// leave it dynamic?
+
+db.recipes.updateOne(
+  { title: "Panqueca Simples" },
+  {
+    $set : {
+      "ingredients.$[elemento].name": "Farinha Integral",
+    },
+  },
+  { arrayFilters: [ { "elemento.name": "Farinha" } ] },
+);
+
+// Here we change the value "Farinha" to "Farinha integral" the element represents like an
+// variable that we can leave more dynamic
+// Results:
+[
+  {
+    _id: ObjectId("61435cdfbefb9bf910834042"),
+    title: 'Panqueca Simples',
+    ingredients: [
+      { name: 'Farinha Integral', quantity: 2 },
+      { name: 'Oleo', quantity: 4, unit: 'xícara' },
+      { name: 'Leite', quantity: 1 }
+    ]
+  },
+  {
+    _id: ObjectId("61435cdfbefb9bf910834043"),
+    title: 'Bolo de Cenoura',
+    ingredients: [
+      { name: 'Farinha', quantity: 2 },
+      { name: 'Oleo', quantity: 1, unit: 'xícara' },
+      { name: 'Ovo', quantity: 3 },
+      { name: 'Cenoura', quantity: 3 },
+      { name: 'Fermento', quantity: 1 }
+    ]
+  }
+]
+
+// Follow the other example bellow:
+db.recipes.updateOne(
+  { title: "Panqueca Simples" },
+  {
+    $set : {
+      "ingredients.$[elemento].unit": "xícara",
+    },
+  },
+  { arrayFilters: [ { "elemento.name": "Farinha Integral" } ] },
+);
+// Here we are seting the unit field with xícara value enside an array where the elemento.name
+// be equals "Farinha Integral";
+// Watch that we change the elemento.name to "Farinha Integral" cause in the previous query
+// we change the elemento.name from title that is equals "Panqueca Simples";
+
+// Case we want set the unit field with the xícara value and name field with Farinha Integral value
+// we could make like in the following example:
+db.recipes.updateMany( // We pass from updateOne for updateMany
+  {}, // Remove the title restriction
+  {
+    $set : {
+      "ingredients.$[elemento].unit": "xícara", // Set 'unit' as "xícara",
+      "ingredients.$[elemento].name": "Farinha Integral", // `name` as "Farinha Integral".
+    },
+  },
+  { arrayFilters: [ { "elemento.name": "Farinha" } ] }, // Filtered the arrays
+  // that propertie value 'name' be equals "Farinha";
+);
