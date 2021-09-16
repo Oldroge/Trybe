@@ -1,0 +1,59 @@
+// The addToSet operator is used when need ensure that any value in the array be duplicated;
+// See some examples:
+{
+  _id: 1,
+  item: "polarizing_filter",
+  tags: ["electronics", "camera"],
+}
+// consider the example above as a inventory collection;
+
+// Adding to array:
+// The follow operation will add accessories value into the tags field
+db.inventory.updateOne(
+  { _id: 1 },
+  { $addToSet: { tags: "accessories" } },
+);
+
+// Now the document it look like this:
+{
+  _id: 1,
+  item: "polarizing_filter",
+  tags: [
+    "electronics",
+    "camera",
+    "accessories",
+  ],
+}
+
+// If the value exists:
+// The operation bellow would add the camera value in the tags fiend, although the value exists
+// and wont works;
+db.inventory.updateOne(
+  { _id: 1 },
+  { $addToSet: { tags: "camera"  } },
+);
+// As a results return this message:
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 0 }
+
+// With the modifier $each:
+// Follow the next document
+{ _id: 2, item: "cable", tags: ["electronics", "supplies"] }
+// The operation bellow will try to add eletronics and supplies values in the tags field
+// but only the supplies value works, cause the electronics exists;
+db.inventory.updateOne(
+  { _id: 2 },
+  {
+    $addToSet: {
+      tags: {
+    $each: ["camera", "electronics", "accessories"],
+      },
+    },
+  },
+);
+
+// As a results:
+{
+  _id: 2,
+  item: "cable",
+  tags: ["electronics", "supplies", "camera", "accessories"],
+}
