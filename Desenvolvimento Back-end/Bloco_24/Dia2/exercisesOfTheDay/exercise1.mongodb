@@ -1,0 +1,10 @@
+// Add the category "superhero" to the film Batman;
+use movies;
+db.allMovies.updateOne(
+  { title: "Batman" },
+  {
+    $push: {
+      category: "superhero"
+    },
+  },
+);
