@@ -1,0 +1,36 @@
+// Add to the actors from cast by character Batman from the movie Batman the values:
+// "Michael Keaton", "Val Kilmer" and "George Clooney", and leave the array in alphatic order;
+use movies;
+db.allMovies.update(
+  {
+    title: "Batman",
+    "cast.character": "Batman"
+  },
+  {
+    $push: {
+      "cast.$.actor": {
+        $each: [
+          "Michael Keaton",
+          "Val Kilmer",
+          "George Clooney"
+        ]
+      }
+    },
+  },
+);
+
+db.allMovies.updateOne(
+  {
+    title: "Batman",
+    "cast.character": "Batman"
+  },
+  {
+    $push: {
+      "cast.$.actor": {
+          "Michael Keaton" ,
+          "Val Kilmer" ,
+          "George Clooney"
+      }
+    }
+  }
+)
