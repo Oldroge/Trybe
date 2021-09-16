@@ -1,0 +1,15 @@
+// Using the $each modify, add the categories "villain" and "comic-based" to the movie Batman;
+use movies;
+db.allMovies.updateOne(
+  { title: "Batman" },
+  {
+    $push: {
+      category: {
+        $each: [
+          "villain",
+          "comic-based",
+        ],
+      },
+    },
+  },
+);
