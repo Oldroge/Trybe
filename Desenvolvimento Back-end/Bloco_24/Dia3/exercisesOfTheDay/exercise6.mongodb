@@ -1,0 +1,18 @@
+// Return all movies with ratings greater than 103, displaying only the title and ratings field;
+use movies;
+db.movies.find(
+  {
+    ratings: {
+      $elemMatch: {
+        $gt: 103,
+      },
+    },
+  },
+  { title: 1, ratings: 1, _id: 0 },
+);
+
+// Results:
+[
+  { title: 'Batman', ratings: [ 85, 100, 102, 105 ] },
+  { title: 'Home Alone', ratings: [ 200, 99, 65 ] }
+]

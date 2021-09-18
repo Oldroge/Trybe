@@ -1,0 +1,10 @@
+// Add an array called ratings to the Home Alone movie with the follow values: [200, 99, 65];
+use movies;
+db.movies.updateOne(
+  { title: "Home Alone" },
+  {
+    $set: {
+      ratings: [200, 99, 65],
+    },
+  },
+);
