@@ -1,0 +1,29 @@
+// Return the movies from categories adventure and with ratings greater than 103, displaying only
+// the title, ratings and category fields;
+use movies;
+db.movies.find(
+  {
+    $and: [
+      {
+        category: {
+          $elemMatch: { $eq: "adventure" },
+        },
+      },
+      {
+        ratings: {
+          $elemMatch: { $gte: 103 },
+        },
+      },
+    ],
+  },
+  { title: 1, ratings: 1, category: 1, _id: 0 }
+);
+
+// Answer:
+[
+  {
+    title: 'Batman',
+    category: [ 'action', 'adventure' ],
+    ratings: [ 85, 100, 102, 105 ]
+  }
+]
