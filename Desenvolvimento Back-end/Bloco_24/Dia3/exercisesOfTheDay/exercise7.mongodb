@@ -1,0 +1,18 @@
+// Return all the movies with ratings between 100 and 105. Displaying only the title and
+// ratings field;
+use movies;
+db.movies.find(
+  {
+    ratings: {
+      $elemMatch: { $gte: 100, $lte: 105 },
+    },
+  },
+  { title: 1, ratings: 1, _id: 0 },
+);
+
+// Results
+[
+  { title: 'Batman', ratings: [ 85, 100, 102, 105 ] },
+  { title: 'Godzilla', ratings: [ 78, 52, 95, 102 ] }
+]
+
