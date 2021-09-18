@@ -1,0 +1,23 @@
+// return all the movies with ratings between 64 and 105 divisible by 9, displaying only the
+// the title and ratings field;
+use movies;
+db.movies.find(
+  {
+    $and: [
+      {
+        ratings: {
+          $elemMatch: { $gte: 64, $lte: 105 },
+        }
+      },
+      {
+        ratings: {
+          $mod: [9, 0],
+        }
+      },
+    ],
+  },
+  { title: 1, ratings: 1, _id: 0 },
+);
+
+// Results:
+[ { title: 'Home Alone', ratings: [ 200, 99, 65 ] } ]
