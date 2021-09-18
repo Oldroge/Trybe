@@ -1,0 +1,10 @@
+// Return the movies that have action in the array category and have grade by IMDB greater than 7;
+use movies;
+db.movies.find(
+  {
+    $and: [
+    { category: { $all: ["action"] } },
+    { imdbRating: { $gt: 7 } },
+    ],
+  },
+);
