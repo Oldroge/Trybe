@@ -1,0 +1,20 @@
+// Return the movies that have action in the array category and have grade by IMDB greater than 7;
+use movies;
+db.movies.find(
+  {
+    $and: [
+    { category: { $all: ["action"] } },
+    { imdbRating: { $gt: 7 } },
+    ],
+  },
+);
+[
+  {
+    _id: ObjectId("61460917bf963cd4a0af918f"),
+    title: 'Batman',
+    category: [ 'action', 'adventure' ],
+    imdbRating: 7.7,
+    budget: 35,
+    ratings: [ 85, 100, 102, 105 ]
+  }
+]

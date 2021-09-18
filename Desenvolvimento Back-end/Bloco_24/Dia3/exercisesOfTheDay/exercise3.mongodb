@@ -1,0 +1,11 @@
+// Add an array called ratings to the movie Batman with the follow values: [85, 100, 102, 105]
+// Tip: Remember the $each operator viewed;
+use movies;
+db.movies.updateOne(
+  { title: "Batman" },
+  {
+    $set: {
+      ratings: [85, 100, 102, 105],
+    },
+  },
+);
