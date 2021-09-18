@@ -1,0 +1,16 @@
+// Return only the title of all movies with 2 elements in the category array;
+use movies;
+db.movies.find(
+  {
+    category: {
+      $size: 2
+    },
+  },
+  { title: 1, _id: 0 },
+);
+
+// Results:
+[
+  { title: 'Batman' },
+  { title: 'Home Alone' }
+]
