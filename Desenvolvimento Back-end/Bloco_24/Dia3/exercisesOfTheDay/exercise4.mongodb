@@ -1,0 +1,10 @@
+// Add an array called ratings to the Godzilla movie with the follow values: [78, 52, 95, 102];
+use movies;
+db.movies.updateOne(
+  { title: "Godzilla" },
+  {
+    $set: {
+      ratings: [78, 52, 95, 102],
+    },
+  },
+);
