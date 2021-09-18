@@ -1,0 +1,27 @@
+// Using the $all operator return all movies that have action and adventure in the category array;
+use movies;
+db.movies.find(
+  {
+    category: {
+      $all: ["action", "adventure"],
+    },
+  },
+);
+
+// Results:
+[
+  {
+    _id: ObjectId("61460917bf963cd4a0af918f"),
+    title: 'Batman',
+    category: [ 'action', 'adventure' ],
+    imdbRating: 7.7,
+    budget: 35
+  },
+  {
+    _id: ObjectId("61460917bf963cd4a0af9190"),
+    title: 'Godzilla',
+    category: [ 'action', 'adventure', 'sci-fi' ],
+    imdbRating: 6.6,
+    budget: 10
+  }
+]
