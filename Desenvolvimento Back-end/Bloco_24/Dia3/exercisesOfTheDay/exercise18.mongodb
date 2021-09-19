@@ -1,0 +1,31 @@
+// Using the $regex operator, return all films on what the description start with "The" word;
+use movies;
+db.movies.find(
+  {
+    description: {
+      $regex: /^The/
+    },
+  },
+);
+
+// Results:
+[
+  {
+    _id: ObjectId("61460917bf963cd4a0af918f"),
+    title: 'Batman',
+    category: [ 'action', 'adventure' ],
+    imdbRating: 7.7,
+    budget: 35,
+    ratings: [ 85, 100, 102, 105 ],
+    description: 'The Dark Knight of Gotham City begins his war on crime with his first major enemy being Jack Napier, a criminal who becomes the clownishly homicidal Joker.'
+  },
+  {
+    _id: ObjectId("61460917bf963cd4a0af9190"),
+    title: 'Godzilla',
+    category: [ 'action', 'adventure', 'sci-fi' ],
+    imdbRating: 6.6,
+    budget: 10,
+    ratings: [ 78, 52, 95, 102 ],
+    description: 'The world is beset by the appearance of monstrous creatures, but one of them may be the only one who can save humanity.'
+  }
+]
