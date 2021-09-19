@@ -1,0 +1,13 @@
+// Add a description field in the Godzilla movie with the follow value: "The world is beset by 
+// the appearance of monstrous creatures, but one of them may be the only one who can save
+// humanity."
+
+use movies;
+db.movies.updateOne(
+  { title: "Godzilla" },
+  {
+    $set: {
+      description: "The world is beset by the appearance of monstrous creatures, but one of them may be the only one who can save humanity."
+    },
+  },
+);
