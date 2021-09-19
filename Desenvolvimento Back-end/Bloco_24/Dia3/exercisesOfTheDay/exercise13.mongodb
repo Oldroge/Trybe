@@ -1,0 +1,36 @@
+// return the movies from "sci-fi" category or that have the rating greater than 199, displaying
+// only the fields title, ratings and category;
+use movies;
+db.movies.find(
+  {
+    $or: [
+      { category: "sci-fi" },
+      {
+        ratings: {
+          $elemMatch: {
+            $gt: 199,
+          },
+        },
+      },
+    ],
+  },
+);
+
+// Results:
+[
+  {
+    _id: ObjectId("61460917bf963cd4a0af9190"),
+    title: 'Godzilla',
+    category: [ 'action', 'adventure', 'sci-fi' ],
+    imdbRating: 6.6,
+    budget: 10,
+    ratings: [ 78, 52, 95, 102 ]
+  },
+  {
+    _id: ObjectId("61460917bf963cd4a0af9191"),
+    title: 'Home Alone',
+    category: [ 'family', 'comedy' ],
+    imdbRating: 7.4,
+    ratings: [ 200, 99, 65 ]
+  }
+]
