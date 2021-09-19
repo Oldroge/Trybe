@@ -1,0 +1,21 @@
+// Using the $text operator, search by movies that have the "vacation" term;
+use movies;
+db.movies.find(
+  {
+    $text: {
+      $search: "vacation"
+    },
+  },
+);
+
+// Results:
+[
+  {
+    _id: ObjectId("61460917bf963cd4a0af9191"),
+    title: 'Home Alone',
+    category: [ 'family', 'comedy' ],
+    imdbRating: 7.4,
+    ratings: [ 200, 99, 65 ],
+    description: 'An eight-year-old troublemaker must protect his house from a pair of burglars when he is accidentally left home alone by his family during Christmas vacation.'
+  }
+]
