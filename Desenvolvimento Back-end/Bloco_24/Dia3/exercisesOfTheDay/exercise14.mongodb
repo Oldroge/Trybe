@@ -1,0 +1,29 @@
+// Return the movie on what the ratings have size 4 and be "adventure" or "family" category
+// but havent imdbRating less than 7;
+use movies;
+db.movies.find(
+  {
+    $and: [
+      { ratings: { $size: 4 } },
+      {
+        $or: [
+          { category: "adventure" },
+          { category: "family" },
+        ],
+      },
+      { imdbRating: { $gt: 7 } },
+    ],
+  },
+);
+
+// Results:
+[
+  {
+    _id: ObjectId("61460917bf963cd4a0af918f"),
+    title: 'Batman',
+    category: [ 'action', 'adventure' ],
+    imdbRating: 7.7,
+    budget: 35,
+    ratings: [ 85, 100, 102, 105 ]
+  }
+]
