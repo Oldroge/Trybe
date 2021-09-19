@@ -1,0 +1,21 @@
+// Using the $text operator, search by movies that have the phrase "when he is accidentally";
+use movies;
+db.movies.find(
+  {
+    $text: {
+      $search: "\"when he is accidentally\""
+    },
+  },
+);
+
+// Results:
+[
+  {
+    _id: ObjectId("61460917bf963cd4a0af9191"),
+    title: 'Home Alone',
+    category: [ 'family', 'comedy' ],
+    imdbRating: 7.4,
+    ratings: [ 200, 99, 65 ],
+    description: 'An eight-year-old troublemaker must protect his house from a pair of burglars when he is accidentally left home alone by his family during Christmas vacation.'
+  }
+]
