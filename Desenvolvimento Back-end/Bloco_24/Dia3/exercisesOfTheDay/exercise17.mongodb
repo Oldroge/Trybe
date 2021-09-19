@@ -1,0 +1,12 @@
+// Add a description field in the Home Alone movie with the follow value: "An eight-year-old 
+// troublemaker must protect his house from a pair of burglars when he is accidentally left 
+// home alone by his family during Christmas vacation." .
+use movies;
+db.movies.updateOne(
+  { title: "Home Alone" },
+  {
+    $set: {
+      description: "An eight-year-old troublemaker must protect his house from a pair of burglars when he is accidentally left home alone by his family during Christmas vacation."
+    },
+  },
+);
