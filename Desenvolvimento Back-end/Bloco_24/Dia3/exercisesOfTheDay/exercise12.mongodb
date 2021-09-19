@@ -1,0 +1,30 @@
+// Search the movies on what the field module 5 budget be 0 and the category array be size 2;
+use movies;
+db.movies.find(
+  {
+    $and: [
+      {
+        budget: {
+          $mod: [5, 0],
+          }
+      },
+      {
+        category: {
+          $size: 2,
+        },
+      },
+    ],
+  },
+); 
+
+// Results:
+[
+  {
+    _id: ObjectId("61460917bf963cd4a0af918f"),
+    title: 'Batman',
+    category: [ 'action', 'adventure' ],
+    imdbRating: 7.7,
+    budget: 35,
+    ratings: [ 85, 100, 102, 105 ]
+  }
+]
