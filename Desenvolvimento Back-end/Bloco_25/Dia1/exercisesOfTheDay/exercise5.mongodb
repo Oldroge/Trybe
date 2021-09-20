@@ -1,0 +1,19 @@
+// Group the clients by gender. Return the total of clients of each gender in the field total;
+use erp;
+db.clientes.aggregate([
+  {
+    $group: {
+      _id: "$sexo",
+      total: {
+        $sum: 1,
+      },
+    },
+  },
+]);
+
+// Answer:
+[
+  { _id: 'FEMININO', total: 155 },
+  { _id: 'MASCULINO', total: 176 },
+  { _id: 'NÃO DEFINIDO', total: 168 }
+]
