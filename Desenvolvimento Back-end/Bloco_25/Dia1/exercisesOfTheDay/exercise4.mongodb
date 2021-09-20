@@ -1,0 +1,21 @@
+// Count how many customers from SC state exist in the collection. Return the document in the
+// _id field have the UF and other field with total;
+use erp;
+db.clientes.aggregate([
+  {
+    $match: {
+      "endereco.uf": "SC"
+    }
+  },
+  {
+    $group: {
+      _id: "SC",
+      total: {
+        $sum: 1
+      },
+    },
+  },
+]);
+
+// Answer:
+[ { _id: 'SC', total: 25 } ]
