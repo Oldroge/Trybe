@@ -1,0 +1,6 @@
+// Using the $match operator, write an aggregation to return only the gender "MASCULINO" from
+// the clients;
+use erp;
+db.clientes.aggregate(
+  [{ $match : { sexo : "MASCULINO" } }]
+);
