@@ -1,0 +1,40 @@
+// Group the clients by 'sexo' and 'uf'. Return the clients total of each gender in the field
+// total;
+use erp;
+db.clientes.aggregate([
+  {
+    $group: {
+      _id: {
+        gênero: "$sexo",
+        uf: "$endereco.uf",
+      },
+      total: {
+        $sum: 1,
+      },
+    },
+  },
+]);
+
+// Answer:
+[
+  { _id: { 'gênero': 'MASCULINO', uf: 'PR' }, total: 7 },
+  { _id: { 'gênero': 'MASCULINO', uf: 'RS' }, total: 4 },
+  { _id: { 'gênero': 'MASCULINO', uf: 'AL' }, total: 5 },
+  { _id: { 'gênero': 'MASCULINO', uf: 'AP' }, total: 5 },
+  { _id: { 'gênero': 'MASCULINO', uf: 'PI' }, total: 7 },
+  { _id: { 'gênero': 'FEMININO', uf: 'RN' }, total: 6 },
+  { _id: { 'gênero': 'NÃO DEFINIDO', uf: 'BA' }, total: 6 },
+  { _id: { 'gênero': 'NÃO DEFINIDO', uf: 'MA' }, total: 5 },
+  { _id: { 'gênero': 'FEMININO', uf: 'GO' }, total: 3 },
+  { _id: { 'gênero': 'FEMININO', uf: 'TO' }, total: 7 },
+  { _id: { 'gênero': 'MASCULINO', uf: 'SC' }, total: 7 },
+  { _id: { 'gênero': 'FEMININO', uf: 'AC' }, total: 8 },
+  { _id: { 'gênero': 'FEMININO', uf: 'PA' }, total: 10 },
+  { _id: { 'gênero': 'NÃO DEFINIDO', uf: 'SC' }, total: 8 },
+  { _id: { 'gênero': 'FEMININO', uf: 'RJ' }, total: 4 },
+  { _id: { 'gênero': 'FEMININO', uf: 'ES' }, total: 3 },
+  { _id: { 'gênero': 'NÃO DEFINIDO', uf: 'GO' }, total: 10 },
+  { _id: { 'gênero': 'MASCULINO', uf: 'MT' }, total: 11 },
+  { _id: { 'gênero': 'FEMININO', uf: 'RR' }, total: 13 },
+  { _id: { 'gênero': 'MASCULINO', uf: 'CE' }, total: 10 }
+]
