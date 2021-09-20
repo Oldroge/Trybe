@@ -1,0 +1,14 @@
+// Using the $match operator, write the aggregation to return only the gender "FEMININO" from
+// clients and with birth date between 1995 and 2005;
+db erp;
+db.clientes.aggregate([
+  {
+    $match: {
+      sexo: "FEMININO",
+      dataNascimento: {
+        $gte: ISODate('1995-01-01'),
+        $lte: ISODate('2005-12-31'),
+      },
+    },
+  },
+]);
