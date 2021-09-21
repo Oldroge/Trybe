@@ -1,0 +1,30 @@
+// Using the same aggregation in the previous exercise, add a projection phase to modify the
+// out documents, the way that looks like with the follow document:
+{
+  "estado": "SP",
+  "sexo": "MASCULINO",
+  "total": 100
+}
+
+use erp;
+db.clientes.aggregate([
+  {
+    $group: {
+      _id: {
+      uf: "$endereco.uf",
+      sexo: "$sexo",
+      },
+      total: {
+        $sum: 1,
+      },
+    },
+  },
+  {
+    $project: {
+      _id: 0,
+      estado: "$_id.uf",
+      sexo:   "$_id.sexo",
+      total: 1,
+    },
+  },
+]);
