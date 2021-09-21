@@ -1,0 +1,26 @@
+// Find out how many customers purchased more than 5 times. Return a document that have only
+// the clientes field with total of clients;
+use erp;
+db.vendas.aggregate([
+  {
+    $group: {
+      _id: "$clienteId",
+      "biggest buyers": {
+        $sum: 1,
+      },
+    },
+  },
+  {
+    $match: {
+      "biggest buyers": {
+        $gt: 5,
+      },
+    },
+  },
+  {
+    $count: 'clientes',
+  },
+]);
+
+// Answer: 
+[ { clientes: 459 } ]

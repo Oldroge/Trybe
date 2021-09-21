@@ -1,4 +1,5 @@
 // Find out which are the 10 clients that spends the biggest value in the 2019 year;
+use erp;
 db.vendas.aggregate([
   {
     $match: {
