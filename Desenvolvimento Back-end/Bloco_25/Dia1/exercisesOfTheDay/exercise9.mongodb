@@ -1,0 +1,39 @@
+// Find out which are the 10 clients that spends the biggest value in the 2019 year;
+db.vendas.aggregate([
+  {
+    $match: {
+      $and: [
+        { dataVenda: { $gte: ISODate('2019-01-01') } },
+        { dataVenda: { $lte: ISODate('2019-12-31') } },
+      ],
+    },
+  },
+  {
+    $group: {
+      _id: "$clienteId",
+      valorTotal: {
+        $sum: "$valorTotal",
+      },
+    },
+  },
+  {
+    $sort: { valorTotal: -1 },
+  },
+  {
+    $limit: 10,
+  },
+]);
+
+// Answer:
+[
+  { _id: 189, valorTotal: 114731.88 },
+  { _id: 169, valorTotal: 114495.23999999999 },
+  { _id: 367, valorTotal: 113458.3 },
+  { _id: 151, valorTotal: 109639.03 },
+  { _id: 368, valorTotal: 109431.73999999999 },
+  { _id: 460, valorTotal: 106441.92 },
+  { _id: 102, valorTotal: 104589.51 },
+  { _id: 459, valorTotal: 102661.33 },
+  { _id: 481, valorTotal: 102373.05 },
+  { _id: 489, valorTotal: 97751.54000000001 }
+]

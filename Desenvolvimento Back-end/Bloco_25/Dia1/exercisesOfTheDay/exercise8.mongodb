@@ -1,0 +1,32 @@
+// Find out which is the five clients spends the greater value;
+use erp;
+db.vendas.aggregate([
+  {
+    $match: {
+      status: {
+        $in: ['ENTREGUE', 'EM SEPARACAO'],
+      },
+    },
+  },
+  {
+    $group: {
+      _id: "$clienteId",
+      valorTotal: { $sum: "$valorTotal" },
+    },
+  },
+  {
+    $sort: { valorTotal: -1 },
+  },
+  {
+    $limit: 5,
+  },
+]);
+
+// Answer:
+[
+  { _id: 244, valorTotal: 135395.03 },
+  { _id: 430, valorTotal: 114029.13 },
+  { _id: 66, valorTotal: 109752.72 },
+  { _id: 250, valorTotal: 109611.28 },
+  { _id: 330, valorTotal: 108588.33 }
+]
