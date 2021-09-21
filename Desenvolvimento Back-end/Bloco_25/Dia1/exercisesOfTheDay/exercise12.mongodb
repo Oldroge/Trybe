@@ -1,0 +1,58 @@
+// Find out which the three 'uf's that more purchase in the 2020. Return the documents as
+// follow format:
+{
+  "totalVendas": 10,
+  "uf": "SP"
+}
+
+use erp;
+db.vendas.aggregate([
+  {
+    $match: {
+      dataVenda: {
+        $gte: ISODate('2020-01-01'),
+        $lte: ISODate('2020-12-31')
+      }
+    }
+  },
+  {
+    $lookup: {
+      from: "clientes",
+      localField: "clienteId",
+      foreignField: "clienteId",
+      as: "biggest purchase",
+    },
+  },
+  {
+    $unwind: "$biggest purchase"
+  },
+  {
+    $group: {
+      _id: "$biggest purchase.endereco.uf",
+      totalVendas: {
+        $sum: 1,
+      },
+    },
+  },
+  {
+    $sort: {
+      totalVendas: -1,
+    },
+  },
+  {
+    $project: {
+      totalVendas: 1,
+      _id: "SP",
+    },
+  },
+  {
+    $limit: 3
+  },
+]);
+
+// Answer:
+[
+  { totalVendas: 37, _id: 'SP' },
+  { totalVendas: 30, _id: 'SP' },
+  { totalVendas: 29, _id: 'SP' }
+]
