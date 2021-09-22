@@ -23,7 +23,10 @@ db.warehouses.insertMany([
   { _id: 5, stock_item: "cookies", warehouse: "A", instock: 80 }
 ]);
 
-
+// In the follow examples, its being used a lookup operator to join orders and warehouses collections.
+from: // As already are in the orders collection we need to call the warehouses first to index which database wants to join;
+let: // let is like a variable in javascript, as seen before, the pipeline parameter cant see the top level, so we need to declare a variable in which wants the pipeline parameter look;
+pipeline: // Here put the condition to join the collections, $match operator will make a match searching which in common between the two collections, the $expr allows make comparison in the same document, finally the $and only allows to run if the two aboves condition are true
 db.orders.aggregate([
   {
     $lookup: {
@@ -46,3 +49,46 @@ db.orders.aggregate([
     }
   }
 ]);
+// Watch the "$stock_item" use only one $ but the "$$order_item" uses two. When used only one $ it means that we want the propertie inside a collection and when is used two, it means that we want to get the variable inside a let parameter;
+
+// The results about the above query is:
+{
+  "_id" : 1,
+  "item" : "almonds",
+  "price" : 12,
+  "ordered" : 2,
+  "stockdata" : [
+    {
+      "warehouse" : "A",
+      "instock" : 120
+    },
+    {
+      "warehouse" : "B",
+      "instock" : 60
+    }
+  ]
+}
+{
+  "_id" : 2,
+  "item" : "pecans",
+  "price" : 20,
+  "ordered" : 1,
+  "stockdata" : [
+    {
+      "warehouse" : "A",
+      "instock" : 80
+    }
+  ]
+}
+{
+  "_id" : 3,
+  "item" : "cookies",
+  "price" : 10,
+  "ordered" : 60,
+  "stockdata" : [
+    {
+      "warehouse" : "A",
+      "instock" : 80
+    }
+  ]
+};
