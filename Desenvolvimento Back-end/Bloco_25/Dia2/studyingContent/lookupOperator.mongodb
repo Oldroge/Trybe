@@ -1,0 +1,48 @@
+//Aplying lookup condition to the join using the let and pipeline parameters;
+
+Let // Define which variables will be used in the pipeline phase inside lookup. It is necessary cause the pipeline dont see directly the input document fields. So with the let we can define previously trannsform in variables;
+
+Pipeline // Definy which is the condition to execute in the join colection. To execute all documents in collection it is only specify it empty as: ([]);
+
+// ============ EXAMPLES ===============
+
+// Insert two collections, orders and warehouses;
+use example_db;
+db.orders.insertMany([
+  { _id: 1, item: "almonds", price: 12, ordered: 2 },
+  { _id: 2, item: "pecans", price: 20, ordered: 1 },
+  { _id: 3, item: "cookies", price: 10, ordered: 60 }
+]);
+
+use example_db;
+db.warehouses.insertMany([
+  { _id: 1, stock_item: "almonds", warehouse: "A", instock: 120 },
+  { _id: 2, stock_item: "pecans", warehouse: "A", instock: 80 },
+  { _id: 3, stock_item: "almonds", warehouse: "B", instock: 60 },
+  { _id: 4, stock_item: "cookies", warehouse: "B", instock: 40 },
+  { _id: 5, stock_item: "cookies", warehouse: "A", instock: 80 }
+]);
+
+
+db.orders.aggregate([
+  {
+    $lookup: {
+      from: "warehouses",
+      let: { order_item: "$item", order_qty: "$ordered" },
+      pipeline: [
+        {
+          $match: {
+            $expr: {
+              $and: [
+                { $eq: [ "$stock_item",  "$$order_item" ] },
+                { $gte: [ "$instock", "$$order_qty" ] }
+              ]
+            }
+          }
+        },
+        { $project: { stock_item: 0, _id: 0 } }
+      ],
+      as: "stockdata"
+    }
+  }
+]);
