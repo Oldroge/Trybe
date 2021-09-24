@@ -14,5 +14,13 @@ const drawLots = () => {
   const number = readline.questionInt('Type a number between 0 and 10? ')
 
   logResults(randomNum, number)
+
+const playAgain = readline.question('Try again? [Yes/Not] ').toUpperCase()[0]
+
+if (playAgain === "Y") {
+  drawLots();
+} else {
+  console.log("Okay! Bye! :D")
 }
+};
 drawLots();
