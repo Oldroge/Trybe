@@ -22,3 +22,26 @@ try {
   console.log(e.message);
 }
 // NOTICE: The error is only treated by convetion, it will never display to the user (or almost hehe). But is a good way to handle with errors;
+
+
+// Treating errors as async form:
+// As before is declared a function, and within the function is declared a new Promise
+function dividirNumeros(num1, num2) {
+  const promise = new Promise((resolve, reject) => {
+    // if this promise for some reason be reject, it run the follow line calling the reject function;
+    if (num2 == 0) reject(new Error("Não pode ser feito uma divisão por zero"));
+
+    // If everything runs fine, the resolve function will back the divide result;
+    const resultado = num1 / num2;
+    resolve(resultado)
+  });
+  // Function returning the promise when called
+  return promise;
+}
+// Handle with the promise to divide the numbers
+dividirNumeros(2, 1)
+  // If everything went right, then bring the results
+  .then(result => console.log(`sucesso: ${result}`))
+  // Case dont, catch the error and handle display a mensage
+  .catch(err => console.log(`erro: ${err.message}`));
+  
