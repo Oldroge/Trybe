@@ -44,4 +44,32 @@ dividirNumeros(2, 1)
   .then(result => console.log(`sucesso: ${result}`))
   // Case dont, catch the error and handle display a mensage
   .catch(err => console.log(`erro: ${err.message}`));
-  
+
+
+  // Using the callback hell now as promises:
+  const fs = require('fs');
+
+function readFilePromise (fileName) {
+  return new Promise((resolve, reject) => {
+    fs.readFile(fileName, (err, content) => {
+      if (err) return reject(err);
+      resolve(content);
+    });
+  });
+}
+
+readFilePromise('file1.txt') // The function promise that will read the file
+  .then((content) => { // Case file 1 be read,
+    console.log(`Lido file1.txt com ${content.byteLength} bytes`); // Write the result in console
+    return readFilePromise('file2.txt'); // Call the function again, that return a new promise
+  })
+  .then(content => { // Case promise return by 'then' before be resolve,
+    console.log(`Lido file2.txt com ${content.byteLength} bytes`); // write the resul in the console
+    return readFilePromise('file3.txt'); // and called the function again, receiving a new promise
+  })
+  .then((content) => { // Case the read promise from 'file3.txt' be resolved,
+    console.log(`Lido file3.txt com ${content.byteLength} bytes`); // log the result in the console
+  })
+  .catch((err) => { // Case any of the promises along the way be rejected
+    console.log(`Erro ao ler arquivos: ${err.message}`); // Write the result in the console
+  });
