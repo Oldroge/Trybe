@@ -1,5 +1,7 @@
 //1 - Create a function that read all data files and print each character in id - nome format. Example: 1 - Homer Simpson;
 const fs = require('fs');
+const { resolve } = require('path');
+
 function readData(file) {
   const promise = new Promise((resolve, reject) => {
     fs.readFile(file, 'utf8', (err, response) => {
@@ -16,4 +18,4 @@ readData('./simpsons.json')
   })
   .catch((err) => {
     console.log(err)
-  })
+  });
