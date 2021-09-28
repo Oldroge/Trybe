@@ -48,3 +48,16 @@ function arrayNumbers() {
   .catch(err => console.log(err));
 };
 arrayNumbers();
+
+// Exercise 3:
+// Rewrite the previous exercise to use async/await.
+// Remember: The key word await only can be used inside the function;
+async function exerciseThree() {
+  try {
+    const result = await exerciseOne(...randomNumbers);
+    console.log(result);
+  } catch (err) {
+    console.error(err);
+  };
+};
+exerciseThree();
