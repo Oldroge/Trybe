@@ -1,6 +1,8 @@
 // Structure the tests using mocha and chai to a function that will say if a number is "positive", "negative" or "neutral";
 // This function will receive a number as parameter and returns a string as answer;
 // When the passed number were bigger than 0 should return "positive", when were less than 0 should return "negative" and when equals 0 should return "neutral";
+
+// Implement the function presented in the exercise 1, ensuring that it will pass in all tests that you write;  
 const { expect } = require('chai');
 
 const biggerLessThan = require('./test1');
