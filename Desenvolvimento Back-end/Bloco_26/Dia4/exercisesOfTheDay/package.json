@@ -5,7 +5,7 @@
   "main": "exercise1.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon exercise3.js"
+    "dev": "nodemon exercise4.js"
   },
   "keywords": [],
   "author": "",
