@@ -8,7 +8,7 @@ async function getUser (username) {
 }
 // Now can use this file in any place where need an user. For example, in the comand-line interface;
 
-// The following code will be an example if were be using other file;
+// The following codes will be an example if were be using other file;
 
 // cli.js
 const readline = require('readline-sync');
@@ -28,3 +28,22 @@ async function start() {
 }
 
 start();
+
+//At the same time could use the model in the middleware;
+// getUserMiddleware.js
+
+const userModel = require('./userModel');
+
+async function getUserMiddleware (req, res, next) {
+    const { username } = req.body;
+
+    const user = await userModel.getUser(username);
+
+    if (!user) {
+        return res.status(404).json({ message: 'user not found' });
+    }
+
+    return res.status(200).json(user);
+}
+
+// This way, if our users were stored in other place, as a file, or another database, it can needed change only the userModel.js file and everything will be fine;
