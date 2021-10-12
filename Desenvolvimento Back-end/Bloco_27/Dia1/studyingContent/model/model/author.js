@@ -4,7 +4,7 @@ const getNewAuthor = ({id, firstName, middleName, lastName}) => {
   const fullName = [firstName, middleName, lastName]
         .filter((name) => name)
         .join(" ");
-        
+
   return {
     id,
     firstName,
@@ -28,6 +28,25 @@ const getAll = async () => {
   return authors.map(serialize).map(getNewAuthor);
 };
 
+const findById = async (id) => {
+  const [authorData] = await connection.execute(
+    'SELECT id, first_name, middle_name, last_name FROM model_example.authors WHERE id = ?',
+    [id]
+  );
+
+  if (!authorData) return null;
+
+  const { firstName, middleName, lastName } = serialize(authorData[0]);
+
+  return getNewAuthor({
+    id,
+    firstName,
+    middleName,
+    lastName
+  });
+}
+
 module.exports = {
   getAll,
+  findById
 }
