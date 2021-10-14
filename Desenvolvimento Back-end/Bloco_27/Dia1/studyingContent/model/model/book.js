@@ -1,4 +1,5 @@
 const connection = require('./connection');
+const author = require('./author');
 
 // Create a Book model and define the method getAll to return the all list of books;
 
@@ -30,12 +31,24 @@ const getBookId = async (authorId) => {
   );
     if (book.length === 0) return null;
 
-    // const { id, title } = serialize(book[0]);
-
     return book.map(serialize).map(newBook);
 }
 
+const isValid = async (title, author_id) => {
+  if (!title || title.length < 3 || typeof title !== 'string') return false;
+  if (!author_id || typeof author_id !== 'number' || !(await author.findById(author_id))) return false;
+  
+  return true;
+};
+
+const create = async (title, author_id) => connection.execute(
+  'INSERT INTO model_example.books (title, author_id) VALUES (?, ?)',
+  [title, author_id],
+);
+
 module.exports = {
   getAll,
-  getBookId
+  getBookId,
+  isValid,
+  create
 };
