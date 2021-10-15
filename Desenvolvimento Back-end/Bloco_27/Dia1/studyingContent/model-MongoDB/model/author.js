@@ -47,7 +47,13 @@ const findById = async (id) => {
     return getNewAuthor({ id, firstName, middleName, lastName });
 };
 
+const create = async (firstName, middleName, lastName) => 
+    connection()
+        .then((db) => db.collection('authors').insertOne({ firstName, middleName, lastName }))
+        .then(result => getNewAuthor({ id: result.insertedId, firstName, middleName, lastName }))
+
 module.exports = {
     getAll,
-    findById
+    findById,
+    create
 }
