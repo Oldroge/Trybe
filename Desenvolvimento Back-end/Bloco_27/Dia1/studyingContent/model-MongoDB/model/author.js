@@ -2,6 +2,8 @@
 
 const connection = require('./connection');
 
+const { ObjectId } = require('mongodb');
+
 const getNewAuthor = ({id, firstName, middleName, lastName}) => {
     const fullName = [firstName, middleName, lastName]
           .filter((name) => name)
@@ -16,7 +18,7 @@ const getNewAuthor = ({id, firstName, middleName, lastName}) => {
     }
   }
 
-// Busca todos os autores do banco.
+// Search for all authors in the database;
 const getAll = async () => {
     return connection()
         .then((db) => db.collection('authors').find().toArray())
@@ -32,6 +34,20 @@ const getAll = async () => {
         );
 }
 
+const findById = async (id) => {
+    if (!ObjectId.isValid(id)) return null;
+
+    const authorData = await connection()
+        .then((db) => db.collection('authors').findOne(new ObjectId(id)));
+
+    if (!authorData) return null;
+
+    const { firstName, middleName, lastName } = authorData;
+
+    return getNewAuthor({ id, firstName, middleName, lastName });
+};
+
 module.exports = {
-    getAll
+    getAll,
+    findById
 }
