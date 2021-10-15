@@ -1,9 +1,9 @@
 const { MongoClient } = require('mongodb');
 
-const MONGO_URL = 'mongodb:/127.0.0.27017';
+const MONGO_URL = 'mongodb://127.0.0.1:27017';
 
 const OPTIONS = {
-  urlNewParser: true,
+  useNewUrlParser: true,
   useUnifiedTopology: true
 };
 
