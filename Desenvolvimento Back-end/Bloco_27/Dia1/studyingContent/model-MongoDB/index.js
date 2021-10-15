@@ -12,8 +12,13 @@ app.get('/authors', async (req, res) => {
 
 // Refactore the getAll method by models/Book to use the Mongo with databases;
 app.get('/books', async (req, res) => {
-  console.log(await books.getAll());
   res.status(200).json(await books.getAll());
+})
+
+// Refactore the getByAuthorId method by models/Book to use the mongo with databases;
+app.get('/books/:id', async (req, res) => {
+  const { id } = req.params;
+  res.status(200).json(await books.getByAuthorId(id));
 })
 
 app.listen(PORT, () => {
