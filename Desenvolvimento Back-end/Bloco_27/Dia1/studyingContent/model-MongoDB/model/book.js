@@ -6,6 +6,9 @@ const getAll = async () => {
     .then((db) => db.collection('books').find().toArray());
 }
 
+const getByAuthorId = async (id) => connection()
+    .then((db) => db.collection('books').find({ author_id: Number(id) }).toArray());
 module.exports = {
-  getAll
+  getAll,
+  getByAuthorId
 }
