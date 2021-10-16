@@ -33,8 +33,35 @@ const getTheUsersById = async (id) => {
     .toArray())
 }
 
+const updateUserById = async (id, firstName, lastName, email, password) => {
+  return connection()
+    .then((db) => db.collection('users')
+    .updateOne(
+      { _id: ObjectId(id) },
+      {
+        $set: {
+          firstName,
+          lastName,
+          email,
+          password
+        }
+      }
+      ))
+    .then((UpdatedUser) => UpdatedUser
+    .matchedCount
+    ? ({ id, firstName, lastName, email, password })
+    : (
+        {
+          "error": true,
+          "message": "Usuário não encontrado"
+        }
+      )
+    );
+};
+
 module.exports = {
   createNewUser,
   getTheUsers,
-  getTheUsersById
+  getTheUsersById,
+  updateUserById
 }
