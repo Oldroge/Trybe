@@ -7,7 +7,13 @@ const createNewUser = async ({ firstName, lastName, email, password }) => {
       lastName,
       email,
       password
-    }));
+    }))
+    .then((dataUser) => ({
+      id: dataUser.insertedId,
+      firstName,
+      lastName,
+      email
+    }))
 };
 
 module.exports = {

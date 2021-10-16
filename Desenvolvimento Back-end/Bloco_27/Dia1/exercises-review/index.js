@@ -19,9 +19,14 @@ async (req, res) => {
     password
   } = req.body;
 
-  await userModel.createNewUser({firstName, lastName, email, password});
-
-  res.status(201).json("Created!");
+  addNewUser = await
+  userModel.createNewUser({
+    firstName,
+    lastName,
+    email,
+    password
+  });
+  res.status(201).json(addNewUser);
 
 });
 
