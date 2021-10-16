@@ -1,4 +1,4 @@
-const { mongoClient, MongoClient } = require('mongodb');
+const { MongoClient } = require('mongodb');
 
 const OPTIONS = {
   useNewUrlParser: true,
@@ -12,9 +12,10 @@ let db = null;
 const connection = () => {
   return db
   ? Promise.resolve(db)
-  : MongoClient.connect(MONGO_DB_URL)
+  : MongoClient.connect(MONGO_DB_URL, OPTIONS)
   .then((conn) => {
-    db = conn.db('model_example')
+    db = conn.db('model_example');
+    return db;
   })
 };
 
