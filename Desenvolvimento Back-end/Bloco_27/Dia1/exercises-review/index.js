@@ -43,8 +43,23 @@ async (req, res) => {
       "message": "Usuário não encontrado"
     }
   );
-  console.log(getTheUserId.length);
   res.status(200).json(getTheUserId);
+})
+
+app.put('/users/:id',
+validateDatas,
+async (req, res) => {
+  const { id } = req.params;
+  const { firstName, lastName, email, password } = req.body;
+  const updatedUser = await userModel.updateUserById(
+    id,
+    firstName,
+    lastName,
+    email,
+    password
+  );
+
+  res.status(200).json(updatedUser);
 })
 
 app.listen(PORT, () =>{
