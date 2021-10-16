@@ -21,8 +21,14 @@ const getBookId = async (bookId) => {
   return book;  
 };
 
+const create = (title, author_id) => {
+  connection()
+    .then((db) => db.collection('books').insertOne({ title, author_id: author_id }));
+};
+
 module.exports = {
   getAll,
   getByAuthorId,
-  getBookId
+  getBookId,
+  create
 }

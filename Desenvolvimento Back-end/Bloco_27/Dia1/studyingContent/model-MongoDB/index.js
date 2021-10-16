@@ -1,4 +1,5 @@
 const bodyParser = require('body-parser');
+const { ObjectId } = require('bson');
 const express = require('express');
 const app = express();
 
@@ -35,8 +36,18 @@ app.post('/authors', async (req, res) => {
 });
 
 // Refactore the getAll method by models/Book to use the Mongo with databases;
-app.get('/books', async (req, res) => {
+app.get('/books', async (_req, res) => {
   res.status(200).json(await books.getAll());
+})
+
+app.post('/books', async (req, res) => {
+  const { title, author_id } = req.body;
+  if(!title || !author_id) {
+    return res.status(400).json({ message: 'Ivalid datas!' })
+  };
+  await books.create(title, author_id)
+  res.status(200).json({ message: 'Book created success!!' })
+
 })
 
 // Refactore the getById method by models/Book to use the mongo with databases;
@@ -44,6 +55,7 @@ app.get('/books/:id', async (req, res) => {
   const { id } = req.params;
   res.status(200).json(await books.getBookId(id));
 })
+
 
 
 
