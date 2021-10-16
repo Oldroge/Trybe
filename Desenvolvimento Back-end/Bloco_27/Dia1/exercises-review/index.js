@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
-const { validateDatas } = require('./middleweres/validateDatas');
+const { validateDatas, checkTheId } = require('./middleweres/validateDatas');
 const userModel = require('./model/user');
 
 const PORT = 3001;
@@ -31,6 +31,20 @@ async (req, res) => {
 
 app.get('/users', async (_req, res) => {
   res.status(200).json(await userModel.getTheUsers());
+})
+
+app.get('/users/:id',
+async (req, res) => {
+  const { id } = req.params;
+  const getTheUserId = await userModel.getTheUsersById(id);
+  if (getTheUserId.length === 0) return res.status(404).json(
+    {
+      "error": true,
+      "message": "Usuário não encontrado"
+    }
+  );
+  console.log(getTheUserId.length);
+  res.status(200).json(getTheUserId);
 })
 
 app.listen(PORT, () =>{
