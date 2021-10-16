@@ -26,7 +26,15 @@ const getTheUsers = async () => {
     .then((users) => users));
 };
 
+const getTheUsersById = async (id) => {
+  return connection()
+    .then((db) => db.collection('users')
+    .find({ _id: ObjectId(id) })
+    .toArray())
+}
+
 module.exports = {
   createNewUser,
-  getTheUsers
+  getTheUsers,
+  getTheUsersById
 }

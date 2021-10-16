@@ -1,3 +1,5 @@
+const validId = require('../model/user');
+
 const validateDatas = (req, res, next) => {
   const { firstName, lastName, email, password } = req.body;
   if (!firstName || !lastName || !email || !password) {
