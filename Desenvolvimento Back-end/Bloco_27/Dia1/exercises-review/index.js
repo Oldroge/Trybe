@@ -5,7 +5,7 @@ const app = express();
 const { validateDatas } = require('./middleweres/validateDatas');
 const userModel = require('./model/user');
 
-const PORT = 3000;
+const PORT = 3001;
 
 app.use(bodyParser.json());
 
@@ -27,9 +27,11 @@ async (req, res) => {
     password
   });
   res.status(201).json(addNewUser);
-
 });
 
+app.get('/users', async (_req, res) => {
+  res.status(200).json(await userModel.getTheUsers());
+})
 
 app.listen(PORT, () =>{
   console.log(`Server listen on port ${PORT}`);
