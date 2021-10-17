@@ -77,9 +77,18 @@ async (req, res) => {
     password
   });
 
-  return res.status(200).json(getById)
+  const getById = await getUserById(id);
 
-})
+  if (getById.length === 0) {
+    return res.status(404).json({
+      error: true,
+      message: "Usuário não encontrado"
+    });
+  };
+
+  return res.status(200).json(getById);
+
+});
 
 app.listen(PORT, () => {
   console.log(`Listen port ${PORT}`);
