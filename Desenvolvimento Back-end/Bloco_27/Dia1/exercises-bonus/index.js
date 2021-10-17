@@ -5,7 +5,8 @@ const bodyParse = require('body-parser');
 const { validateDatas } = require('./middlewares/validateDatas');
 
 const {
-  createUser
+  createUser,
+  getUser
 } = require('./model/user');
 
 app.use(bodyParse.json());
@@ -22,10 +23,23 @@ async (req, res) => {
     password
   } = req.body;
 
-  const addUser = await createUser({ firstName, lastName, email, password });
+  const addUser = await createUser({
+    firstName,
+    lastName,
+    email,
+    password
+  });
 
-  res.status(201).json(addUser);
+  return res.status(201).json(addUser);
 });
+
+app.get('/users', async (_req, res) => {
+  const getAllUsers = await getUser();
+  if (getAllUsers.length === 0) {
+    return res.status(404).json([])
+  }
+  return res.status(200).json(await getUser())
+})
 
 app.listen(PORT, () => {
   console.log(`Listen port ${PORT}`);

@@ -17,6 +17,13 @@ const createUser = ({ firstName, lastName, email, password }) => {
   .then(([result]) => ({ id: result.insertId, firstName, lastName, email }));
 }
 
+const getUser = () => {
+  return connection
+  .execute('SELECT * FROM users_crud.users')
+  .then(([result]) => result.map(formatUser));
+}
+
 module.exports = {
-  createUser
+  createUser,
+  getUser
 }
