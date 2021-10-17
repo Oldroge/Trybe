@@ -7,7 +7,8 @@ const { validateDatas } = require('./middlewares/validateDatas');
 const {
   createUser,
   getUser,
-  getUserById
+  getUserById,
+  updateUser
 } = require('./model/user');
 
 app.use(bodyParse.json());
@@ -55,6 +56,39 @@ app.get('/users/:id', async (req, res) => {
 
   return res.status(200).json(getById);
 })
+
+app.put('/users/:id',
+validateDatas,
+async (req, res) => {
+  const { id } = req.params;
+  const {
+    firstName,
+    lastName,
+    email,
+    password
+  } = req.body;
+
+  const getById = await updateUser(
+    id,
+    {
+    firstName,
+    lastName,
+    email,
+    password
+  });
+
+  const getById = await getUserById(id);
+
+  if (getById.length === 0) {
+    return res.status(404).json({
+      error: true,
+      message: "Usuário não encontrado"
+    });
+  };
+
+  return res.status(200).json(getById);
+
+});
 
 app.listen(PORT, () => {
   console.log(`Listen port ${PORT}`);
