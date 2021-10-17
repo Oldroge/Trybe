@@ -11,7 +11,8 @@ const formatUser = ({ id, first_name: firstName, last_name: lastName, email }) =
 
 const createUser = ({ firstName, lastName, email, password }) => {
   return connection
-    .execute('INSERT INTO users (first_name, last_name, email, password) VALUES(?, ?, ?, ?)',
+    .execute(
+      'INSERT INTO users (first_name, last_name, email, password) VALUES(?, ?, ?, ?)',
     [firstName, lastName, email, password],
   )
   .then(([result]) => ({ id: result.insertId, firstName, lastName, email }));
@@ -23,7 +24,17 @@ const getUser = () => {
   .then(([result]) => result.map(formatUser));
 }
 
+const getUserById = (id) => {
+  return connection
+  .execute(
+    'SELECT * FROM users_crud.users WHERE id = ?',
+    [id]
+    )
+    .then(([result]) => result.map(formatUser));
+}
+
 module.exports = {
   createUser,
-  getUser
+  getUser,
+  getUserById
 }
