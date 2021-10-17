@@ -72,9 +72,27 @@ const create = async (firstName, middleName, lastName) =>
     .then((db) => db.collection('authors').insertOne({ firstName, middleName, lastName }))
     .then(result => getNewAuthor({ id: result.insertedId, firstName, middleName, lastName }));
 
+const findByName = async (firstName, middleName, lastName) => {
+  // Determine if should search with or without the middle name;
+  const query = middleName
+    ? { firstName, middleName, lastName }
+    : { firstName, lastName };
+
+  // Execute the query and return the result;
+  const author = await connection()
+    .then((db) => db.collection('authors').findOne(query));
+
+  // Case neither author be find, return null
+  if (!author) return null;
+
+  // Case contrary, returns the finded author;
+  return getNewAuthor(author);
+};
+
 module.exports = {
   getAll,
   findById,
   isValid,
   create,
+  findByName
 };
