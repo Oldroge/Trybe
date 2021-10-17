@@ -7,7 +7,8 @@ const { validateDatas } = require('./middlewares/validateDatas');
 const {
   createUser,
   getUser,
-  getUserById
+  getUserById,
+  updateUser
 } = require('./model/user');
 
 app.use(bodyParse.json());
@@ -54,6 +55,30 @@ app.get('/users/:id', async (req, res) => {
   };
 
   return res.status(200).json(getById);
+})
+
+app.put('/users/:id',
+validateDatas,
+async (req, res) => {
+  const { id } = req.params;
+  const {
+    firstName,
+    lastName,
+    email,
+    password
+  } = req.body;
+
+  const getById = await updateUser(
+    id,
+    {
+    firstName,
+    lastName,
+    email,
+    password
+  });
+
+  return res.status(200).json(getById)
+
 })
 
 app.listen(PORT, () => {

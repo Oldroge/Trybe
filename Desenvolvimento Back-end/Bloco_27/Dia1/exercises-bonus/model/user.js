@@ -24,17 +24,27 @@ const getUser = () => {
   .then(([result]) => result.map(formatUser));
 }
 
-const getUserById = (id) => {
+const getUserById = async (id) => {
   return connection
   .execute(
     'SELECT * FROM users_crud.users WHERE id = ?',
     [id]
     )
     .then(([result]) => result.map(formatUser));
+};
+
+const updateUser = async (id, { firstName, lastName, email, password }) => {
+  await connection
+  .execute(
+    'UPDATE users SET first_name = ?, last_name = ?, email = ?, password = ? WHERE id = ?',
+    [firstName, lastName, email, password, id]
+  );
+  return getUserById(id);
 }
 
 module.exports = {
   createUser,
   getUser,
-  getUserById
+  getUserById,
+  updateUser
 }
