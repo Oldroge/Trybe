@@ -22,7 +22,7 @@ const approvedStudents = ({ disciplines }) =>
 
 /* "Update" */
 const updateApprovalData = ({ name: studentName, disciplines }) => {
-  console.log(`A pessoa com nome ${studentName} foi aprovada!`);
+  console.log(`A pessoa com nome ${ studentName } foi aprovada!`);
 
   disciplines.map(({ name, letterGrade }) =>
     console.log(`${name}: ${letterGrade}`));
