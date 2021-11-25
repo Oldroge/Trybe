@@ -1,20 +1,59 @@
 // ./index.js
 
-/* "Convert" */
-const percentageGradesIntoLetters = ({ name, disciplines }) => ({
+/* Apoio para a função `getGradeLetter`, lembraremos disso mais a frente */
+/* suport to the function `getGradeLetter` */
+const GRADE_DICT = {
+  0.9: 'A',
+  0.8: 'B',
+  0.7: 'C',
+  0.6: 'D',
+  0.1: 'E',
+};
+
+const gradeKeys = Object.keys(GRADE_DICT);
+
+/* Minor function to remove the excessive if{} else`s */
+const getGradeLetter = (gradeNumber) => {
+  let letterGrade = 'F';
+
+  for (let i = 0; i < gradeKeys.length; i += 1) {
+    if (gradeNumber >= gradeKeys[i]) {
+      letterGrade = GRADE_DICT[gradeKeys[i]];
+      break;
+    }
+  }
+
+  return letterGrade;
+};
+
+/* Collect grades */
+const getLetterGrades = ({ name, grade }) => ({
   name,
-  disciplines: disciplines.map(({ name, grade }) => {
-    let letterGrade;
+  grade,
+  letterGrade: getGradeLetter(grade) });
 
-    if (grade >= 0.9) letterGrade = 'A';
-    else if (grade >= 0.8) letterGrade = 'B';
-    else if (grade >= 0.7) letterGrade = 'C';
-    else if (grade >= 0.6) letterGrade = 'D';
-    else if (grade >= 0.1) letterGrade = 'E';
-    else letterGrade = 'F';
+/* Convert */
+const percentageGradesIntoLetters = ({ name, disciplines, school }) => ({
+  name,
+  school,
+  disciplines: disciplines.map(getLetterGrades) });
 
-    return { name, grade, letterGrade };
-  })});
+/* WITH THIS FUNCTION LINTER WERE WARNING HIGH COMPLEXITY SO CREATED THE FUNCTIONS ABOVE */
+// /* "Convert" */
+// const percentageGradesIntoLetters = ({ name, disciplines }) => ({
+//   name,
+//   disciplines: disciplines.map(({ name, grade }) => {
+//     let letterGrade;
+
+//     if (grade >= 0.9) letterGrade = 'A';
+//     else if (grade >= 0.8) letterGrade = 'B';
+//     else if (grade >= 0.7) letterGrade = 'C';
+//     else if (grade >= 0.6) letterGrade = 'D';
+//     else if (grade >= 0.1) letterGrade = 'E';
+//     else letterGrade = 'F';
+
+//     return { name, grade, letterGrade };
+//   }) });
 
 /* "Define" */
 const approvedStudents = ({ disciplines }) =>
@@ -22,7 +61,7 @@ const approvedStudents = ({ disciplines }) =>
 
 /* "Update" */
 const updateApprovalData = ({ name: studentName, disciplines }) => {
-  console.log(`A pessoa com nome ${ studentName } foi aprovada!`);
+  console.log(`A pessoa com nome ${studentName} foi aprovada!`);
 
   disciplines.map(({ name, letterGrade }) =>
     console.log(`${name}: ${letterGrade}`));
