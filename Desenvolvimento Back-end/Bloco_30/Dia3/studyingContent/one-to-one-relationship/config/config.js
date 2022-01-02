@@ -3,8 +3,8 @@ dotenv.config();
 
 module.exports = {
   "development": {
-    "username": process.env.USERNAME,
-    "password": process.env.PASSWORD,
+    "username": 'oldroge',
+    "password": '80638103487125',
     "database": "associations",
     "host": "127.0.0.1",
     "dialect": "mysql"
