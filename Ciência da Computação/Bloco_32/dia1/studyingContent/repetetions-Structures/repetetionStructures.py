@@ -23,3 +23,12 @@ filtered_restaurants = [restaurant
                          for restaurant in restaurants
                          if restaurant['name'] != 'Restaurant A']
 print(filtered_restaurants)
+
+
+#### WHILE LOOP
+
+n = 10
+last, next = 0, 1
+while last < n:
+    print(last)
+    last, next = next, last + next
