@@ -7,3 +7,9 @@ for rate in ratings:
     new_ratings.append(rate * 10)
 
 print(new_ratings)
+
+# Exercício 15: Percorra a lista do exercício 14 e imprima "Múltiplo de 3" se o elemento for divisível por 3.
+
+for new_rate in new_ratings:
+    if new_rate % 3 == 0:
+      print(new_rate)
