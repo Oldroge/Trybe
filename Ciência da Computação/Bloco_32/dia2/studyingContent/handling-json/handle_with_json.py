@@ -7,3 +7,10 @@ with open("pokemon.json") as file:
     # accessing the key results that is where have our pokemon list
 
 print(pokemons[0])  # print the first list pokemon
+
+# other way to read the json is with the load method, the difference between both is: the loads read file from JSON text, already load read file from file.
+
+with open("pokemon.json") as file:
+    pokemons = json.load(file)["results"]
+
+print(pokemons[0])  # print the first list pokemon
