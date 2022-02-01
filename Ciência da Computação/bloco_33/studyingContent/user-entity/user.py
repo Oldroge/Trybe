@@ -14,3 +14,11 @@ print(meu_user.email)
 print(meu_user.password)
 
 # The 'meu_user' variable contains the created object by constructor from User class!
+
+
+# In this example our entity wants to send an e-mail to change password, lets create the logic:
+def reset_password(self):
+    print("Envia email de reset de senha")
+
+meu_user = User("Valentino Trocatapa", "valentino@tinytoons.com", "Grana")
+meu_user.reset_password()
