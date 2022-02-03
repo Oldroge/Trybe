@@ -4,7 +4,15 @@ import gzip
 import json
 from zipfile import ZipFile
 
-class ZipCompressor():
+class Compressor(ABC):
+    def __init__(self, filepath='./'):
+        self.filepath = filepath
+
+    @abstractmethod
+    def compress(self, file_name):
+        raise NotImplementedError
+
+class ZipCompressor(Compressor):
     '''Compressors will have fixed at the files storing file local, so let define it the constructors'''
     def __init__(self, filepath='./'):
         self.filepath = filepath
@@ -14,7 +22,7 @@ class ZipCompressor():
             zip_file.write(file_name)
 
 
-class GzCompressor():
+class GzCompressor(Compressor):
     def __init__(self, filepath='./'):
         self.filepath = filepath
 
