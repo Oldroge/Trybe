@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from csv import DictWriter
+import gzip
 import json
 
 
@@ -18,6 +19,13 @@ class SalesReport(ABC):
                 'Coluna 2': 'Dado B',
                 'Coluna 3': 'Dado C'
                 }]
+    
+    def compress(self):
+        binary_content = json.dumps(self.build()).encode('utf-8')
+        #Here it have a problema, cause the file that will be created is with extensions .gz, but what if it needs create with extension .zip?
+        # Change the extension bellow can't possible, cause it will compromise others places that are using this method, so what we can do to fix this? 
+        with gzip.open(self.export_file + '.gz', 'wb') as compressed_file:
+            compressed_file.write(binary_content)
 
     @abstractmethod
     def serialize(self):
