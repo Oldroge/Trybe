@@ -33,4 +33,5 @@ class SalesReportCSV(SalesReport):
         with open(self.export_file + '.csv', 'w') as file:
             json.dump(self.build(), file)
 
-## Next day study what is DUMP() and BUILD() méthods
+test = SalesReportJSON('test');
+print(test)
