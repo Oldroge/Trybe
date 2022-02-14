@@ -20,3 +20,10 @@ for product in selector.css(".product_pod"):
     title = product.css("h3 a::attr(title)").get()
     price = product.css(".price_color::text").get()
     print(title, price)
+
+
+# How do we get all books from all pages in the website?
+
+# exist a next class, that can recover url through yours element anchor
+next_page_url = selector.css(".next a::attr(href)").get()
+print(next_page_url)
