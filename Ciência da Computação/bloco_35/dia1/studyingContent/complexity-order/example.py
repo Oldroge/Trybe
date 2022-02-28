@@ -14,3 +14,4 @@ print(sum_array(number_array))
 end = time.perf_counter()
 print("tempo de resposta: ", end - start)
 
+# The order complexity is how the execution time grow according input size
