@@ -11,3 +11,13 @@ class LinkedList:
 
     def __len__(self):
         return self.__length
+    
+    def insert_first(self, value):
+        first_value = Node(value)
+        first_value.next = self.head_value
+        self.head_value = first_value
+        self.__length += 1
+
+test = LinkedList(Node(2))
+
+print(test.insert_first())
