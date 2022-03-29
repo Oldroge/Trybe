@@ -5,3 +5,7 @@ class Node:
 
     def __str__(self):
         return f"Node(value={self.value}, next={self.next})"
+
+# test = Node(1)
+
+# print(test.__str__())
