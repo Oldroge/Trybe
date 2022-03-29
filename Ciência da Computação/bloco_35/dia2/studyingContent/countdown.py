@@ -17,11 +17,15 @@ def fibonacci_iter(n):
 
 
 def fibonacci(n):
+    list = []
     if n < 2:
+        print('entrou no if')
         return n
     else:
+        print('entrou no else')
         test = fibonacci(n-1) + fibonacci(n-2)
+        # list.append(test)
         print(test)
         return test
 
-print(fibonacci(4))
+print(fibonacci(5))
