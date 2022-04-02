@@ -39,8 +39,12 @@ export default class App extends Component {
     this.cantStartWithNumber = this.cantStartWithNumber.bind(this)
 
     this.state = {
+      name: '',
+      email: '',
+      cpf: '',
       address: '',
-      city: ''
+      city: '',
+      state: ''
     }
   }
 
@@ -75,7 +79,9 @@ export default class App extends Component {
           <input
             id="name"
             type="text"
+            name="name"
             maxLength="40"
+            onChange={(value) => this.handleState(value)}
             required
           />
         </label>
@@ -84,7 +90,9 @@ export default class App extends Component {
           Email: 
           <input
             type="text"
+            name="email"
             maxLength="50"
+            onChange={(value) => this.handleState(value)}
             required
           />
         </label>
@@ -93,7 +101,9 @@ export default class App extends Component {
           CPF: 
           <input
             type="text"
+            name="cpf"
             maxLength="11"
+            onChange={(value) => this.handleState(value)}
             required
           />
         </label>
@@ -127,6 +137,7 @@ export default class App extends Component {
         Estado: 
           <select
             name="state"
+            onChange={(value) => this.handleState(value)}
             required
           >
             {
