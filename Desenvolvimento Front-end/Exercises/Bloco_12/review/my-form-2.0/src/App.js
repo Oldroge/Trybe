@@ -44,7 +44,8 @@ export default class App extends Component {
       cpf: '',
       address: '',
       city: '',
-      state: ''
+      state: '',
+      type: ''
     }
   }
 
@@ -146,6 +147,25 @@ export default class App extends Component {
               ))
             }
           </select>
+        </label>
+
+        <label>
+          Tipo:
+          <input
+            type="radio"
+            name="type"
+            value="CASA"
+            onChange={(value) => this.handleState(value)}
+            required
+          /> CASA
+
+          <input
+            type="radio"
+            name="type"
+            value="APARTAMENTO"
+            onChange={(value) => this.handleState(value)}
+            required
+          /> APARTAMENTO
         </label>
       </fieldset>
     )
