@@ -6,18 +6,19 @@ export default class App extends Component {
   constructor() {
     super();
     this.handleState = this.handleState.bind(this)
+    this.cantStartWithNumber = this.cantStartWithNumber.bind(this)
 
     this.state = {
-      address: ''
+      address: '',
+      city: ''
     }
   }
 
   handleState({ target }) {
     const { name, value } = target
-    console.log(this.state.address)
     if (name === 'address') {
       this.setState({
-        address: value.replace(/[!@#$%&*()=+|/]/g, "")
+        address: value.replace(/[!?@#$%&*()=+|/_<>:;]/g, "")
       })
     }
     else {
@@ -25,7 +26,15 @@ export default class App extends Component {
         [name]: value
       })
     }
+  }
 
+  cantStartWithNumber({ target }) {
+    const { value } = target
+    if (/\d/.test(value)) {
+      this.setState({
+        city: ''
+      })
+    }
   }
 
   render() {
@@ -67,6 +76,19 @@ export default class App extends Component {
             maxLength="200"
             onChange={(value) => this.handleState(value)}
             value={this.state.address}
+            required
+          />
+        </label>
+
+        <label>
+        Cidade: 
+          <input
+            type="text"
+            name="city"
+            maxLength="28"
+            onChange={(value) => this.handleState(value)}
+            onBlur={(a) => this.cantStartWithNumber(a)}
+            value={this.state.city}
             required
           />
         </label>
