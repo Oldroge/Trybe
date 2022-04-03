@@ -32,26 +32,29 @@ const states = [
   { uf: 'TO', unidade_federativa: 'Tocantins' },
   ];
 
+  const INITIAL_STATE = {
+    name: '',
+    email: '',
+    cpf: '',
+    address: '',
+    city: '',
+    state: '',
+    type: '',
+    resume: '',
+    office: '',
+    'office-description': '',
+    button: false
+  }
+
 export default class App extends Component {
   constructor() {
     super();
     this.handleState = this.handleState.bind(this)
     this.cantStartWithNumber = this.cantStartWithNumber.bind(this)
     this.sendDataButton = this.sendDataButton.bind(this)
+    this.clearDatas = this.clearDatas.bind(this)
 
-    this.state = {
-      name: '',
-      email: '',
-      cpf: '',
-      address: '',
-      city: '',
-      state: '',
-      type: '',
-      resume: '',
-      office: '',
-      'office-description': '',
-      button: false
-    }
+    this.state = { INITIAL_STATE }
   }
 
   handleState({ target }) {
@@ -83,8 +86,11 @@ export default class App extends Component {
     })
   }
 
+  clearDatas = () => {
+    this.setState(INITIAL_STATE)
+  }
+
   render() {
-    console.log(this.state.button)
     return (
       <>
         <fieldset>
@@ -96,6 +102,7 @@ export default class App extends Component {
               name="name"
               maxLength="40"
               onChange={(value) => this.handleState(value)}
+              value={this.state.name}
               required
             />
           </label>
@@ -107,6 +114,7 @@ export default class App extends Component {
               name="email"
               maxLength="50"
               onChange={(value) => this.handleState(value)}
+              value={this.state.email}
               required
             />
           </label>
@@ -118,6 +126,7 @@ export default class App extends Component {
               name="cpf"
               maxLength="11"
               onChange={(value) => this.handleState(value)}
+              value={this.state.cpf}
               required
             />
           </label>
@@ -152,6 +161,7 @@ export default class App extends Component {
             <select
               name="state"
               onChange={(value) => this.handleState(value)}
+              value={this.state.state}
               required
             >
               {
@@ -189,6 +199,7 @@ export default class App extends Component {
               name="resume"
               maxLength="1000"
               onChange={(value) => this.handleState(value)}
+              value={this.state.resume}
               required
             />
           </label>
@@ -199,6 +210,7 @@ export default class App extends Component {
               name="office"
               maxLength="40"
               onChange={(value) => this.handleState(value)}
+              value={this.state.office}
               onMouseEnter={() => { alert('Preencha com cuidado esta informação.') }}
               required
             />
@@ -210,6 +222,7 @@ export default class App extends Component {
               name="office-description"
               maxLength="500"
               onChange={(value) => this.handleState(value)}
+              value={this.state['office-description']}
               required
             />
           </label>
@@ -219,6 +232,13 @@ export default class App extends Component {
           onClick={this.sendDataButton}
         >
           Enviar
+        </button>
+
+        <button
+          type="button"
+          onClick={this.clearDatas}
+        >
+          Limpar Dados
         </button>
         {
           this.state.button
