@@ -1,5 +1,6 @@
 // ValidEmail.js
 import React from 'react';
+import './App.css'
 import PropTypes from 'prop-types';
 
 const verifyEmail = (email) => {
@@ -14,9 +15,12 @@ const ValidEmail = (props) => {
       <h2 data-testid="id-email-user">{`Valor: ${email}`}</h2>
       {
         email
-        && <h3 data-testid="id-valid-email" >{
-          (verifyEmail(email) ? 'Email Valido' : 'Email Inválido')
-          }</h3>
+        && <h3
+            data-testid="id-valid-email"
+            className={verifyEmail(email) ? 'green-text' : 'red-text'}
+            >
+              {(verifyEmail(email) ? 'Email Valido' : 'Email Inválido')}
+          </h3>
       }
     </div>
   );
