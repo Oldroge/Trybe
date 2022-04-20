@@ -42,3 +42,10 @@ test('Verificando se o botão e o campo email estão funcionando.', () => {
   expect(inputEmail).toHaveValue('');
   expect(textEmail).toHaveTextContent(`Valor: ${ EMAIL_USER }`);
 });
+
+test('Testando o campo válido/inválido esteja vazio quando não tem email', () => {
+  const TEST_ID = 'id-valid-email';
+  render(<App />)
+  const isEmpty = screen.queryByTestId(TEST_ID)
+  expect(isEmpty).not.toBeInTheDocument();
+})
