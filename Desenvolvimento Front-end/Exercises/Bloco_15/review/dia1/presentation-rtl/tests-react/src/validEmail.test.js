@@ -22,3 +22,10 @@ test('Testando se o componente fica com o texto verde com o e-mail correto.', ()
   const isGreen = screen.getByTestId('id-valid-email')
   expect(isGreen).toHaveAttribute('class', 'green-text')
 })
+
+test('Testando se o componente fica com o texto vermelho com o e-mail incorreto.', () => {
+  const EMAIL_USER = 'email incorreto';
+  render(<ValidEmail email={EMAIL_USER} />)
+  const isGreen = screen.getByTestId('id-valid-email')
+  expect(isGreen).toHaveAttribute('class', 'red-text')
+})
