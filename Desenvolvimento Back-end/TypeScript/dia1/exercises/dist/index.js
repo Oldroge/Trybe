@@ -25,3 +25,4 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const exercises = __importStar(require("./exercises"));
 console.log(exercises.greeter('Roge'));
+console.log(exercises.personAge('Roge', 27));
